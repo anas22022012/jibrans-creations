@@ -2,271 +2,243 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Jibran's Creations</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
+*{box-sizing:border-box}
 body{
-  background:linear-gradient(135deg,#fff0f6,#fffde7,#e8f8ff);
-  color:#172554;
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#fff0f7,#fffde8,#e8f8ff);
+ color:#172554
 }
-
 header{
-  padding:18px;
-  text-align:center;
-  background:rgba(255,255,255,.8);
-  position:sticky;
-  top:0;
-  z-index:10;
-  backdrop-filter:blur(10px);
+ position:sticky;top:0;z-index:20;
+ background:#ffffffee;
+ backdrop-filter:blur(15px);
+ padding:10px 16px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ box-shadow:0 3px 20px #0001
 }
-
-header h1{
-  font-size:26px;
+.logo{
+ width:62px;height:62px;
+ object-fit:contain;
+ border-radius:50%
 }
+.icons{display:flex;gap:7px}
+.icon{
+ border:0;background:#f8d9ec;
+ border-radius:13px;
+ padding:11px;
+ font-size:18px;
+ cursor:pointer
+}
+.cart{position:relative}
+.count{
+ position:absolute;top:-7px;right:-5px;
+ background:#e91e63;color:white;
+ width:20px;height:20px;
+ border-radius:50%;
+ font-size:11px;padding-top:4px
+}
+.hero{text-align:center;padding:30px 15px 15px}
+.hero img{
+ width:120px;height:120px;
+ object-fit:contain;background:white;
+ border-radius:50%;padding:5px;
+ box-shadow:0 5px 25px #0001
+}
+.hero h1{font-size:30px;margin:12px 0 5px}
+.hero p{color:#666}
 
-header p{
-  margin-top:5px;
-  color:#555;
+.search{
+ max-width:700px;margin:15px auto;
+ padding:0 15px;display:flex;gap:7px
+}
+.search input{
+ flex:1;padding:14px;
+ border:2px solid #efd6e7;
+ border-radius:15px;
+ font-size:16px;outline:none
+}
+.search button{
+ border:0;border-radius:14px;
+ background:#e9a8cf;
+ padding:0 15px;font-size:18px
 }
 
 .container{
-  max-width:1000px;
-  margin:auto;
-  padding:25px 16px 100px;
+ max-width:950px;
+ margin:auto;padding:10px 15px 60px
 }
-
-.hero{
-  text-align:center;
-  padding:35px 20px;
-  border-radius:28px;
-  background:linear-gradient(135deg,#ffdff0,#fff5bd,#dff8ff);
-  margin-bottom:30px;
+.title{
+ font-size:26px;margin:25px 0 15px
 }
-  
-.hero h2{
-  font-size:32px;
-  margin-bottom:10px;
+.featured{
+ display:flex;
+ gap:10px;
+ overflow-x:auto;
+ padding:5px 0 15px
 }
-
-.hero p{
-  font-size:17px;
+.feature{
+ min-width:220px;
+ background:#fff;
+ border-radius:18px;
+ padding:10px;
+ box-shadow:0 5px 18px #0001
 }
-
-.section-title{
-  margin:25px 0 15px;
-  font-size:25px;
+.feature img{
+ width:100%;height:130px;
+ object-fit:cover;border-radius:13px
 }
+.feature h3{font-size:15px;margin:8px 0}
+.feature b{color:#e91e63}
 
 .product{
-  background:#fff;
-  border-radius:25px;
-  padding:15px;
-  box-shadow:0 8px 30px rgba(0,0,0,.10);
-  max-width:650px;
-  margin:auto;
+ background:#fff;
+ border-radius:24px;
+ padding:15px;
+ box-shadow:0 8px 30px #00000012;
+ margin-top:10px
 }
-
-.product img{
-  width:100%;
-  max-height:430px;
-  object-fit:cover;
-  border-radius:20px;
+.photo-wrap{position:relative}
+.product-photo{
+ width:100%;height:350px;
+ object-fit:cover;border-radius:18px
 }
-
 .badge{
-  display:inline-block;
-  background:#ef5da8;
-  color:white;
-  padding:7px 12px;
-  border-radius:20px;
-  font-weight:bold;
-  margin-top:15px;
+ position:absolute;top:12px;left:12px;
+ background:#e91e63;color:#fff;
+ padding:8px 12px;border-radius:10px;
+ font-weight:bold
 }
-
-.product h3{
-  font-size:23px;
-  margin:12px 0;
+.ai-badge{
+ position:absolute;top:12px;right:12px;
+ background:#7158ff;color:white;
+ padding:8px 12px;border-radius:10px
 }
-
-.description{
-  color:#555;
-  line-height:1.6;
-}
-
+.product h2{font-size:22px}
+.desc{color:#555;line-height:1.5}
 .price{
-  margin:15px 0;
+ display:flex;align-items:center;
+ gap:10px;flex-wrap:wrap
+}
+.old{text-decoration:line-through;color:#888}
+.new{font-size:28px;font-weight:bold;color:#e91e63}
+.off{
+ background:#e4f8e9;
+ color:#16803c;
+ padding:5px 9px;border-radius:8px
+}
+.delivery{color:#666;margin:8px 0}
+.buttons{display:flex;gap:10px}
+.buttons button{
+ flex:1;padding:14px;
+ border:0;border-radius:13px;
+ font-weight:bold;font-size:16px
+}
+.add{background:#f7d7e9;color:#8a245a}
+.buy{background:#e91e63;color:#fff}
+.wish{
+ width:50px;
+ border:0;border-radius:13px;
+ background:#eee;
+ font-size:20px
 }
 
-.mrp{
-  text-decoration:line-through;
-  color:#888;
-  font-size:16px;
+.contact{
+ margin-top:25px;
+ background:#fff;
+ border-radius:20px;
+ padding:20px;
+ text-align:center
 }
-
-.sale{
-  font-size:28px;
-  font-weight:bold;
-  margin-left:8px;
+.contact a{
+ display:inline-block;
+ color:#fff;
+ text-decoration:none;
+ padding:12px 17px;
+ border-radius:12px;
+ margin:5px;
+ background:#25a244
 }
-
-.discount{
-  color:#e11d48;
-  font-weight:bold;
-}
-
-.delivery{
-  background:#f8fafc;
-  padding:12px;
-  border-radius:12px;
-  margin:12px 0;
-}
-
-.buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-button{
-  border:0;
-  padding:13px 18px;
-  border-radius:14px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.buy{
-  background:#ec4899;
-  color:white;
-  flex:1;
-}
-
-.cart{
-  background:#facc15;
-  color:#111827;
-  flex:1;
-}
-
-.info{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:25px;
-}
-
-.info div{
-  background:white;
-  padding:18px 10px;
-  text-align:center;
-  border-radius:18px;
-  box-shadow:0 5px 18px rgba(0,0,0,.07);
-}
-
-.bottom-buttons{
-  position:fixed;
-  bottom:15px;
-  left:15px;
-  right:15px;
-  display:flex;
-  gap:8px;
-  z-index:20;
-}
-
-.bottom-buttons a,
-.bottom-buttons button{
-  flex:1;
-  text-align:center;
-  text-decoration:none;
-  padding:13px 8px;
-  border-radius:15px;
-  color:white;
-  font-weight:bold;
-}
-
-.whatsapp{
-  background:#22c55e;
-}
-
-.care{
-  background:#3b82f6;
-}
+.call{background:#5264d8!important}
 
 .ai{
-  background:#8b5cf6;
+ position:fixed;
+ right:18px;bottom:18px;
+ width:60px;height:60px;
+ border:0;border-radius:50%;
+ background:#7158ff;color:white;
+ font-size:25px;
+ box-shadow:0 6px 25px #0003;
+ z-index:15
 }
 
-/* AI CHAT */
-#aiBox{
-  display:none;
-  position:fixed;
-  right:15px;
-  bottom:80px;
-  width:310px;
-  max-width:calc(100% - 30px);
-  background:white;
-  border-radius:22px;
-  box-shadow:0 10px 40px rgba(0,0,0,.25);
-  z-index:30;
-  overflow:hidden;
+.cart-panel{
+ position:fixed;
+ right:-100%;
+ top:0;
+ width:min(400px,100%);
+ height:100%;
+ background:#fff;
+ z-index:50;
+ padding:20px;
+ box-shadow:-5px 0 25px #0002;
+ transition:.3s;
+ overflow:auto
+}
+.cart-panel.open{right:0}
+.close{
+ float:right;border:0;
+ padding:9px 13px;border-radius:10px
+}
+.cart-item{
+ margin-top:55px;
+ background:#fff0f7;
+ padding:15px;border-radius:15px
+}
+.checkout{
+ width:100%;
+ border:0;border-radius:12px;
+ padding:14px;
+ background:#e91e63;color:#fff;
+ font-weight:bold
 }
 
-.aiHead{
-  background:#8b5cf6;
-  color:white;
-  padding:15px;
-  font-weight:bold;
+.camera{
+ display:none;
+ position:fixed;inset:0;
+ background:#000c;
+ z-index:60;
+ align-items:center;
+ justify-content:center;
+ padding:20px
+}
+.camera-box{
+ background:white;
+ padding:20px;
+ border-radius:20px;
+ width:min(450px,100%);
+ text-align:center
+}
+video{width:100%;border-radius:15px}
+.camera-box button{
+ padding:12px 17px;
+ border:0;border-radius:12px;
+ margin:5px
 }
 
-.aiMessages{
-  height:230px;
-  overflow-y:auto;
-  padding:12px;
-}
-
-.msg{
-  padding:9px 11px;
-  border-radius:12px;
-  margin-bottom:8px;
-  background:#f1f5f9;
-}
-
-.aiInput{
-  display:flex;
-  padding:10px;
-  gap:5px;
-}
-
-.aiInput input{
-  flex:1;
-  padding:10px;
-  border:1px solid #ddd;
-  border-radius:10px;
-}
-
-.aiInput button{
-  background:#8b5cf6;
-  color:white;
-  padding:10px;
-}
+footer{text-align:center;padding:25px;color:#777}
 
 @media(max-width:600px){
-  .hero h2{
-    font-size:25px;
-  }
-
-  .info{
-    grid-template-columns:1fr;
-  }
+ .product-photo{height:260px}
+ .buttons{flex-wrap:wrap}
+ .buttons button{min-width:40%}
+ .hero h1{font-size:25px}
 }
 </style>
 </head>
@@ -274,176 +246,399 @@ button{
 <body>
 
 <header>
-  <h1>🎨 Jibran's Creations</h1>
-  <p>Creative Products • Fun • Happiness</p>
+<img src="logo.jpg" class="logo" alt="Jibran's Creations">
+
+<div class="icons">
+<button class="icon" onclick="focusSearch()">🔎</button>
+<button class="icon" onclick="voiceSearch()">🎤</button>
+<button class="icon" onclick="openCamera()">📷</button>
+<button class="icon cart" onclick="openCart()">
+🛒 <span id="count" class="count">0</span>
+</button>
+</div>
 </header>
 
-<div class="container">
+<section class="hero">
+<img src="logo.jpg" alt="Logo">
+<h1>Jibran's Creations</h1>
+<p>🎨 Paint • Create • Enjoy</p>
+<p>Creative products for everyone ✨</p>
+</section>
 
-  <section class="hero">
-    <h2>Paint • Create • Enjoy 🎨</h2>
-    <p>DIY creative kits for kids and creative minds.</p>
-  </section>
+<div class="search">
+<input id="search" placeholder="Search products..." oninput="search()">
+<button onclick="voiceSearch()">🎤</button>
+<button onclick="openCamera()">📷</button>
+</div>
 
-  <h2 class="section-title">🛍️ Our Products</h2>
+<main class="container">
 
-  <div class="product">
+<h2 class="title">🤖 AI Featured Products</h2>
 
-    <!-- अपनी product image का सही filename यहाँ डालना -->
-    <img src="product.jpg" alt="DIY Painting Kit">
+<div class="featured">
 
-    <span class="badge">🔥 25% OFF</span>
+<div class="feature">
+<img src="product.jpg">
+<h3>🎨 DIY Painting Kit</h3>
+<b>₹135</b>
+</div>
 
-    <h3>DIY Painting Kit – 3D Plaster Art Set 🎨🖌️</h3>
-
-    <p class="description">
-      Paint • Create • Enjoy! 🎨
-      Kids ke liye fun aur creative activity kit.
-      Is set mein 3 plaster figures, 6 assorted paint colours
-      aur 1 paint brush included hai.
-      Apni creativity se figures ko paint karke beautiful art banao. 🌈
-    </p>
-
-    <div class="price">
-      <span class="mrp">MRP ₹180</span>
-      <span class="sale">₹135</span>
-      <span class="discount">25% OFF</span>
-    </div>
-
-    <div class="delivery">
-      🚚 <b>Delivery Charge:</b> ₹100
-      <br>
-      💰 <b>Total:</b> ₹235
-    </div>
-
-    <div class="buttons">
-      <button class="buy" onclick="buyNow()">🛒 Buy Now</button>
-      <button class="cart" onclick="addCart()">➕ Add to Cart</button>
-    </div>
-
-  </div>
-
-  <div class="info">
-    <div>🎨<br><b>Creative Fun</b></div>
-    <div>📦<br><b>Easy Ordering</b></div>
-    <div>💬<br><b>Customer Support</b></div>
-  </div>
+<div class="feature">
+<img src="product.jpg">
+<h3>⭐ Creative Art Set</h3>
+<b>₹135</b>
+</div>
 
 </div>
 
-<!-- AI CHAT -->
-<div id="aiBox">
+<h2 class="title">🛍️ Our Products</h2>
 
-  <div class="aiHead">
-    🤖 Jibran AI Assistant
-    <span onclick="closeAI()" style="float:right;cursor:pointer;">✕</span>
-  </div>
+<div class="product" id="product">
 
-  <div class="aiMessages" id="messages">
-    <div class="msg">
-      👋 Hi! Main Jibran's Creations AI Assistant hoon.
-      Product, price ya order ke baare mein poochho.
-    </div>
-  </div>
+<div class="photo-wrap">
 
-  <div class="aiInput">
-    <input id="aiInput" placeholder="Type your question...">
-    <button onclick="sendAI()">Send</button>
-  </div>
+<img src="product.jpg"
+class="product-photo"
+alt="DIY Painting Kit">
+
+<span class="badge">25% OFF</span>
+<span class="ai-badge">🤖 AI Featured</span>
 
 </div>
 
-<!-- BOTTOM BUTTONS -->
-<div class="bottom-buttons">
+<h2>DIY Painting Kit – 3D Plaster Art Set 🎨🖌️</h2>
 
-  <!-- यहाँ अपना WhatsApp number डालना -->
-  <a class="whatsapp"
-     href="https://wa.me/91XXXXXXXXXX"
-     target="_blank">
-     💬 WhatsApp
-  </a>
+<div class="desc">
+Paint • Create • Enjoy! 🎨
 
-  <!-- यहाँ अपना customer care number डालना -->
-  <a class="care"
-     href="tel:+91XXXXXXXXXX">
-     📞 Customer Care
-  </a>
+Kids ke liye fun aur creative activity kit.
+Is set mein 3 plaster figures, 6 assorted paint
+colours aur 1 paint brush included hai.
 
-  <button class="ai" onclick="openAI()">
-    🤖 AI Assistant
-  </button>
+<br><br>
+
+<b>1 Set Contains:</b><br>
+• 3 Plaster Figures<br>
+• 6 Assorted Paint Colours<br>
+• 1 Paint Brush
+</div>
+
+<div class="price">
+<span class="old">₹180</span>
+<span class="new">₹135</span>
+<span class="off">25% OFF</span>
+</div>
+
+<div class="delivery">
+🚚 Delivery Charge: ₹100
+</div>
+
+<div class="buttons">
+
+<button class="add" onclick="addCart()">
+🛒 Add to Cart
+</button>
+
+<button class="buy" onclick="buyNow()">
+⚡ Buy Now
+</button>
+
+<button class="wish" onclick="wishlist()">
+❤️
+</button>
+
+</div>
+
+</div>
+
+<div class="contact">
+
+<h2>📞 Customer Care</h2>
+
+<p>We're here to help you!</p>
+
+<a class="call" href="tel:9150608692">
+📞 Call
+</a>
+
+<a href="https://wa.me/919150608692" target="_blank">
+💬 WhatsApp
+</a>
+
+</div>
+
+</main>
+
+<footer>
+© 2026 Jibran's Creations • KayB Enterprises
+</footer>
+
+<button class="ai" onclick="assistant()">
+🤖
+</button>
+
+<div class="cart-panel" id="cartPanel">
+
+<button class="close" onclick="closeCart()">✕</button>
+
+<h2>🛒 My Cart</h2>
+
+<div id="cartContent">
+<p>Your cart is empty.</p>
+</div>
+
+</div>
+
+<div class="camera" id="cameraModal">
+
+<div class="camera-box">
+
+<h2>📷 Find Product</h2>
+
+<video id="video" autoplay playsinline></video>
+
+<p>Product ko camera se find karein.</p>
+
+<button onclick="findProduct()">🔎 Find</button>
+<button onclick="closeCamera()">Close</button>
+
+</div>
 
 </div>
 
 <script>
 
-function buyNow(){
-
-  let message =
-  "Hello Jibran's Creations! I want to buy DIY Painting Kit – 3D Plaster Art Set. Price ₹135 + Delivery ₹100. Total ₹235.";
-
-  window.open(
-    "https://wa.me/91XXXXXXXXXX?text=" +
-    encodeURIComponent(message),
-    "_blank"
-  );
-}
+let cart=0;
 
 function addCart(){
 
-  localStorage.setItem(
-    "cartProduct",
-    "DIY Painting Kit – 3D Plaster Art Set"
-  );
+cart++;
 
-  alert("🛒 Product added to cart!");
+document.getElementById("count").innerText=cart;
+
+updateCart();
+
+alert("🛒 Product added to cart!");
+
 }
 
-function openAI(){
-  document.getElementById("aiBox").style.display="block";
+function updateCart(){
+
+let total=(135*cart)+100;
+
+document.getElementById("cartContent").innerHTML=`
+
+<div class="cart-item">
+
+<h3>DIY Painting Kit</h3>
+
+<p>Quantity: ${cart}</p>
+
+<p>Product Price: ₹${135*cart}</p>
+
+<p>Delivery: ₹100</p>
+
+<hr>
+
+<h3>Total: ₹${total}</h3>
+
+<button class="checkout" onclick="buyNow()">
+⚡ Buy Now
+</button>
+
+</div>
+
+`;
+
 }
 
-function closeAI(){
-  document.getElementById("aiBox").style.display="none";
+function openCart(){
+document.getElementById("cartPanel").classList.add("open");
+updateCart();
 }
 
-function sendAI(){
+function closeCart(){
+document.getElementById("cartPanel").classList.remove("open");
+}
 
-  let input=document.getElementById("aiInput");
-  let text=input.value.trim();
+function buyNow(){
 
-  if(!text) return;
+let message=
+"Hello Jibran's Creations!%0A%0A"+
+"I want to buy DIY Painting Kit.%0A"+
+"Price: ₹135%0A"+
+"Delivery: ₹100%0A"+
+"Total: ₹235%0A%0A"+
+"Please confirm my order.";
 
-  let messages=document.getElementById("messages");
+window.open(
+"https://wa.me/919150608692?text="+message,
+"_blank"
+);
 
-  messages.innerHTML +=
-    '<div class="msg"><b>You:</b> '+text+'</div>';
+}
 
-  let reply="";
+function wishlist(){
+alert("❤️ Added to wishlist!");
+}
 
-  let q=text.toLowerCase();
+function focusSearch(){
+document.getElementById("search").focus();
+}
 
-  if(q.includes("price") || q.includes("rate") || q.includes("kit")){
-    reply="🎨 DIY Painting Kit ka sale price ₹135 hai. Delivery ₹100 hai. Total ₹235.";
-  }
-  else if(q.includes("delivery")){
-    reply="🚚 Delivery charge ₹100 hai.";
-  }
-  else if(q.includes("discount")){
-    reply="🔥 Product par 25% OFF hai. MRP ₹180 se ₹135.";
-  }
-  else if(q.includes("buy") || q.includes("order")){
-    reply="🛒 Buy Now button dabakar WhatsApp par order bhej sakte ho.";
-  }
-  else{
-    reply="😊 Product, price, discount, delivery ya order ke baare mein pooch sakte ho.";
-  }
+function search(){
 
-  messages.innerHTML +=
-    '<div class="msg"><b>🤖 AI:</b> '+reply+'</div>';
+let q=document
+.getElementById("search")
+.value.toLowerCase();
 
-  input.value="";
-  messages.scrollTop=messages.scrollHeight;
+let product=document.getElementById("product");
+
+product.style.display=
+q===""||
+q.includes("diy")||
+q.includes("painting")||
+q.includes("plaster")||
+q.includes("art")
+?"block":"none";
+
+}
+
+function voiceSearch(){
+
+let SpeechRecognition=
+window.SpeechRecognition||
+window.webkitSpeechRecognition;
+
+if(!SpeechRecognition){
+alert("Voice search browser mein supported nahi hai.");
+return;
+}
+
+let recognition=new SpeechRecognition();
+
+recognition.lang="en-IN";
+
+recognition.start();
+
+recognition.onresult=function(e){
+
+let text=e.results[0][0].transcript;
+
+document.getElementById("search").value=text;
+
+search();
+
+};
+
+}
+
+let stream=null;
+
+async function openCamera(){
+
+document.getElementById("cameraModal")
+.style.display="flex";
+
+try{
+
+stream=await navigator.mediaDevices
+.getUserMedia({
+video:{facingMode:"environment"}
+});
+
+document.getElementById("video")
+.srcObject=stream;
+
+}catch(e){
+
+alert("Camera permission allow karo.");
+
+}
+
+}
+
+function closeCamera(){
+
+document.getElementById("cameraModal")
+.style.display="none";
+
+if(stream){
+
+stream.getTracks()
+.forEach(t=>t.stop());
+
+stream=null;
+
+}
+
+}
+
+function findProduct(){
+
+closeCamera();
+
+document.getElementById("search").value=
+"DIY Painting";
+
+search();
+
+document.getElementById("product")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+alert("🤖 AI Find Product: DIY Painting Kit found!");
+
+}
+
+function assistant(){
+
+let q=prompt(
+"🤖 Jibran's AI Assistant\n\n"+
+"Ask about:\n"+
+"• Product\n"+
+"• Price\n"+
+"• Discount\n"+
+"• Delivery\n"+
+"• Order"
+);
+
+if(!q)return;
+
+q=q.toLowerCase();
+
+if(q.includes("price")||
+q.includes("rate")){
+
+alert(
+"💰 MRP: ₹180\n"+
+"🏷️ 25% OFF\n"+
+"✨ Sale Price: ₹135\n"+
+"🚚 Delivery: ₹100"
+);
+
+}else if(q.includes("discount")){
+
+alert("🏷️ You get 25% OFF!");
+
+}else if(q.includes("delivery")){
+
+alert("🚚 Delivery charge is ₹100.");
+
+}else if(q.includes("order")){
+
+buyNow();
+
+}else{
+
+alert(
+"🤖 I can help with product, price, "+
+"discount, delivery and orders."
+);
+
+}
+
 }
 
 </script>
