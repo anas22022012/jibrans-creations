@@ -4,7 +4,7 @@ Static e-commerce website + Admin Panel.
 
 ## Login
 Email: jibran.shahban@gmail.com
-Password: Jibran@123
+Password: AnasAdmin@2026
 
 ## Publish
 Upload all files to a GitHub repository and enable GitHub Pages.
