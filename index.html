@@ -1,14 +1,452 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jibran's Creations</title><link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jibran's Creations</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#fff0f6,#fffde7,#e8f8ff);
+  color:#172554;
+}
+
+header{
+  padding:18px;
+  text-align:center;
+  background:rgba(255,255,255,.8);
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(10px);
+}
+
+header h1{
+  font-size:26px;
+}
+
+header p{
+  margin-top:5px;
+  color:#555;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:25px 16px 100px;
+}
+
+.hero{
+  text-align:center;
+  padding:35px 20px;
+  border-radius:28px;
+  background:linear-gradient(135deg,#ffdff0,#fff5bd,#dff8ff);
+  margin-bottom:30px;
+}
+
+.hero h2{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:17px;
+}
+
+.section-title{
+  margin:25px 0 15px;
+  font-size:25px;
+}
+
+.product{
+  background:#fff;
+  border-radius:25px;
+  padding:15px;
+  box-shadow:0 8px 30px rgba(0,0,0,.10);
+  max-width:650px;
+  margin:auto;
+}
+
+.product img{
+  width:100%;
+  max-height:430px;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+.badge{
+  display:inline-block;
+  background:#ef5da8;
+  color:white;
+  padding:7px 12px;
+  border-radius:20px;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+.product h3{
+  font-size:23px;
+  margin:12px 0;
+}
+
+.description{
+  color:#555;
+  line-height:1.6;
+}
+
+.price{
+  margin:15px 0;
+}
+
+.mrp{
+  text-decoration:line-through;
+  color:#888;
+  font-size:16px;
+}
+
+.sale{
+  font-size:28px;
+  font-weight:bold;
+  margin-left:8px;
+}
+
+.discount{
+  color:#e11d48;
+  font-weight:bold;
+}
+
+.delivery{
+  background:#f8fafc;
+  padding:12px;
+  border-radius:12px;
+  margin:12px 0;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+button{
+  border:0;
+  padding:13px 18px;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.buy{
+  background:#ec4899;
+  color:white;
+  flex:1;
+}
+
+.cart{
+  background:#facc15;
+  color:#111827;
+  flex:1;
+}
+
+.info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.info div{
+  background:white;
+  padding:18px 10px;
+  text-align:center;
+  border-radius:18px;
+  box-shadow:0 5px 18px rgba(0,0,0,.07);
+}
+
+.bottom-buttons{
+  position:fixed;
+  bottom:15px;
+  left:15px;
+  right:15px;
+  display:flex;
+  gap:8px;
+  z-index:20;
+}
+
+.bottom-buttons a,
+.bottom-buttons button{
+  flex:1;
+  text-align:center;
+  text-decoration:none;
+  padding:13px 8px;
+  border-radius:15px;
+  color:white;
+  font-weight:bold;
+}
+
+.whatsapp{
+  background:#22c55e;
+}
+
+.care{
+  background:#3b82f6;
+}
+
+.ai{
+  background:#8b5cf6;
+}
+
+/* AI CHAT */
+#aiBox{
+  display:none;
+  position:fixed;
+  right:15px;
+  bottom:80px;
+  width:310px;
+  max-width:calc(100% - 30px);
+  background:white;
+  border-radius:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,.25);
+  z-index:30;
+  overflow:hidden;
+}
+
+.aiHead{
+  background:#8b5cf6;
+  color:white;
+  padding:15px;
+  font-weight:bold;
+}
+
+.aiMessages{
+  height:230px;
+  overflow-y:auto;
+  padding:12px;
+}
+
+.msg{
+  padding:9px 11px;
+  border-radius:12px;
+  margin-bottom:8px;
+  background:#f1f5f9;
+}
+
+.aiInput{
+  display:flex;
+  padding:10px;
+  gap:5px;
+}
+
+.aiInput input{
+  flex:1;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:10px;
+}
+
+.aiInput button{
+  background:#8b5cf6;
+  color:white;
+  padding:10px;
+}
+
+@media(max-width:600px){
+  .hero h2{
+    font-size:25px;
+  }
+
+  .info{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
+
 <body>
+
 <header>
-<img src="IMG-20260906-WA0018.jpg" alt="Jibran's Creations" style="width:120px;height:auto;">
-<h1>🎨 Jibran's Creations</h1>
-<main><section class="hero"><h2>Paint • Create • Enjoy</h2><p>DIY painting kits for creative minds.</p></section>
-<section><h2>Our Products</h2><div id="products" class="grid"></div></section></main>
-<script src="app.js"></script>
-</body></html>
+  <h1>🎨 Jibran's Creations</h1>
+  <p>Creative Products • Fun • Happiness</p>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <h2>Paint • Create • Enjoy 🎨</h2>
+    <p>DIY creative kits for kids and creative minds.</p>
+  </section>
+
+  <h2 class="section-title">🛍️ Our Products</h2>
+
+  <div class="product">
+
+    <!-- अपनी product image का सही filename यहाँ डालना -->
+    <img src="product.jpg" alt="DIY Painting Kit">
+
+    <span class="badge">🔥 25% OFF</span>
+
+    <h3>DIY Painting Kit – 3D Plaster Art Set 🎨🖌️</h3>
+
+    <p class="description">
+      Paint • Create • Enjoy! 🎨
+      Kids ke liye fun aur creative activity kit.
+      Is set mein 3 plaster figures, 6 assorted paint colours
+      aur 1 paint brush included hai.
+      Apni creativity se figures ko paint karke beautiful art banao. 🌈
+    </p>
+
+    <div class="price">
+      <span class="mrp">MRP ₹180</span>
+      <span class="sale">₹135</span>
+      <span class="discount">25% OFF</span>
+    </div>
+
+    <div class="delivery">
+      🚚 <b>Delivery Charge:</b> ₹100
+      <br>
+      💰 <b>Total:</b> ₹235
+    </div>
+
+    <div class="buttons">
+      <button class="buy" onclick="buyNow()">🛒 Buy Now</button>
+      <button class="cart" onclick="addCart()">➕ Add to Cart</button>
+    </div>
+
+  </div>
+
+  <div class="info">
+    <div>🎨<br><b>Creative Fun</b></div>
+    <div>📦<br><b>Easy Ordering</b></div>
+    <div>💬<br><b>Customer Support</b></div>
+  </div>
+
+</div>
+
+<!-- AI CHAT -->
+<div id="aiBox">
+
+  <div class="aiHead">
+    🤖 Jibran AI Assistant
+    <span onclick="closeAI()" style="float:right;cursor:pointer;">✕</span>
+  </div>
+
+  <div class="aiMessages" id="messages">
+    <div class="msg">
+      👋 Hi! Main Jibran's Creations AI Assistant hoon.
+      Product, price ya order ke baare mein poochho.
+    </div>
+  </div>
+
+  <div class="aiInput">
+    <input id="aiInput" placeholder="Type your question...">
+    <button onclick="sendAI()">Send</button>
+  </div>
+
+</div>
+
+<!-- BOTTOM BUTTONS -->
+<div class="bottom-buttons">
+
+  <!-- यहाँ अपना WhatsApp number डालना -->
+  <a class="whatsapp"
+     href="https://wa.me/91XXXXXXXXXX"
+     target="_blank">
+     💬 WhatsApp
+  </a>
+
+  <!-- यहाँ अपना customer care number डालना -->
+  <a class="care"
+     href="tel:+91XXXXXXXXXX">
+     📞 Customer Care
+  </a>
+
+  <button class="ai" onclick="openAI()">
+    🤖 AI Assistant
+  </button>
+
+</div>
+
+<script>
+
+function buyNow(){
+
+  let message =
+  "Hello Jibran's Creations! I want to buy DIY Painting Kit – 3D Plaster Art Set. Price ₹135 + Delivery ₹100. Total ₹235.";
+
+  window.open(
+    "https://wa.me/91XXXXXXXXXX?text=" +
+    encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+function addCart(){
+
+  localStorage.setItem(
+    "cartProduct",
+    "DIY Painting Kit – 3D Plaster Art Set"
+  );
+
+  alert("🛒 Product added to cart!");
+}
+
+function openAI(){
+  document.getElementById("aiBox").style.display="block";
+}
+
+function closeAI(){
+  document.getElementById("aiBox").style.display="none";
+}
+
+function sendAI(){
+
+  let input=document.getElementById("aiInput");
+  let text=input.value.trim();
+
+  if(!text) return;
+
+  let messages=document.getElementById("messages");
+
+  messages.innerHTML +=
+    '<div class="msg"><b>You:</b> '+text+'</div>';
+
+  let reply="";
+
+  let q=text.toLowerCase();
+
+  if(q.includes("price") || q.includes("rate") || q.includes("kit")){
+    reply="🎨 DIY Painting Kit ka sale price ₹135 hai. Delivery ₹100 hai. Total ₹235.";
+  }
+  else if(q.includes("delivery")){
+    reply="🚚 Delivery charge ₹100 hai.";
+  }
+  else if(q.includes("discount")){
+    reply="🔥 Product par 25% OFF hai. MRP ₹180 se ₹135.";
+  }
+  else if(q.includes("buy") || q.includes("order")){
+    reply="🛒 Buy Now button dabakar WhatsApp par order bhej sakte ho.";
+  }
+  else{
+    reply="😊 Product, price, discount, delivery ya order ke baare mein pooch sakte ho.";
+  }
+
+  messages.innerHTML +=
+    '<div class="msg"><b>🤖 AI:</b> '+reply+'</div>';
+
+  input.value="";
+  messages.scrollTop=messages.scrollHeight;
+}
+
+</script>
+
+</body>
+</html>
