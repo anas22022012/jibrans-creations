@@ -1,5 +1,5 @@
-const ADMIN_EMAIL = 'jibran.shahban@gmail.com';
-const ADMIN_PASSWORD = 'AnasAdmin@2026';
+const ADMIN_EMAIL='jibran.shahban@gmail.com';
+const ADMIN_PASSWORD='AnasAdmin@2026';
 
 function login() {
   const emailInput = document.getElementById('email');
