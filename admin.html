@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jibran's Creations ADMIN</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login" class="login"><div class="card"><h2>🎨 Admin Login</h2>
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+<button class="btn" onclick="login()">Login</button><p id="err"></p></div></div>
+
+<div id="panel" hidden>
+<header><h1>🎨 Jibran's Creations ADMIN</h1><span>● Admin mode</span></header>
+<nav><a href="#dashboard">📊 Dashboard</a><a href="#products">🛍️ Products</a><a href="#orders">📦 Orders</a><a href="#offers">🏷️ Offers & Coupons</a><a href="#settings">⚙️ Store Settings</a></nav>
+<main>
+<section id="dashboard" class="card"><h2>Dashboard</h2><p>Manage your store from one place.</p><div class="stats"><b>Products <span id="count">0</span></b><b>In Stock <span id="stock">0</span></b><b>Cart Items 0</b><b>Offers 1</b></div></section>
+
+<section id="products" class="card"><h2>Products</h2><p>Add, edit and manage your products.</p>
+<form id="productForm">
+<label>Product Photos 📸</label><input id="photo" type="file" accept="image/*">
+<input id="name" required placeholder="Product Name *">
+<select id="category" required><option value="">Choose category</option><option>Painting</option><option>Kids</option><option>Shapes</option><option>Animals</option><option>DIY Kits</option><option>Building Toys</option><option>Alphabet</option></select>
+<textarea id="description" placeholder="Description"></textarea><input id="pieces" placeholder="Pieces / Quantity">
+<input id="stockInput" required type="number" placeholder="Stock *"><input id="mrp" required type="number" placeholder="Original / MRP Price (₹) *">
+<input id="sale" required type="number" placeholder="Sale Price (₹) *"><input id="discount" type="number" placeholder="Discount (%)">
+<input id="delivery" type="number" placeholder="Delivery Charge (₹)"><input id="sku" placeholder="SKU / Product Code">
+<label><input id="featured" type="checkbox"> Show as Featured Product</label>
+<label><input id="limited" type="checkbox"> Limited Offer / Flash Sale</label>
+<div><button type="reset">Clear</button> <button class="btn" type="submit">💾 Publish Product</button></div>
+</form>
+<h3>Product List</h3><div id="list"></div></section>
+
+<section id="orders" class="card"><h2>Orders</h2><p>📦 No orders yet</p><small>Once checkout and database are connected, customer orders will appear here.</small></section>
+<section id="offers" class="card"><h2>Offers & Coupons</h2><p>Manage discounts and promotional campaigns.</p><input placeholder="Coupon Code"><input placeholder="Discount"><button class="btn">Save Coupon</button></section>
+<section id="settings" class="card"><h2>Store Settings</h2><p>Phone: 9150608692</p><p>WhatsApp: 9150608692</p><p>Email: jibran.shahban@gmail.com</p><p>Shipping: All over India</p><p>Returns: 7-day return/replacement</p><p>COD: Disabled</p><p>AI Assistant: Chat + Voice</p></section>
+</main></div>
+<script src="admin.js"></script>
+</body></html>
