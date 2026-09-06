@@ -645,3 +645,323 @@ alert(
 
 </body>
 </html>
+<!-- ================= AI ASSISTANT ================= -->
+
+<style>
+#aiBtn{
+  position:fixed;
+  right:18px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff8fc7,#9b8cff);
+  color:white;
+  font-size:25px;
+  box-shadow:0 8px 25px #0003;
+  z-index:9999;
+  cursor:pointer;
+}
+
+#aiBox{
+  display:none;
+  position:fixed;
+  right:18px;
+  bottom:88px;
+  width:340px;
+  max-width:calc(100vw - 36px);
+  height:520px;
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 15px 50px #0004;
+  z-index:10000;
+  border:1px solid #eee;
+  font-family:Arial,sans-serif;
+}
+
+.aiHead{
+  padding:17px;
+  color:white;
+  background:linear-gradient(135deg,#ff8fc7,#8d82ff);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.aiTitle{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.aiLogo{
+  width:40px;
+  height:40px;
+  background:#ffffff33;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+.aiName{
+  font-size:17px;
+  font-weight:bold;
+}
+
+.aiStatus{
+  font-size:11px;
+  opacity:.9;
+  margin-top:3px;
+}
+
+.aiClose{
+  background:none;
+  border:0;
+  color:white;
+  font-size:23px;
+  cursor:pointer;
+}
+
+#aiMessages{
+  height:330px;
+  overflow-y:auto;
+  padding:15px;
+  background:#fafafa;
+}
+
+.aiMsg{
+  max-width:82%;
+  padding:11px 13px;
+  margin:8px 0;
+  border-radius:15px;
+  font-size:14px;
+  line-height:1.4;
+}
+
+.aiMsg.bot{
+  background:#fff;
+  border:1px solid #eee;
+  color:#333;
+}
+
+.aiMsg.user{
+  background:#eadfff;
+  margin-left:auto;
+  color:#333;
+}
+
+.aiQuick{
+  padding:10px;
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  background:white;
+  border-top:1px solid #eee;
+}
+
+.aiQuick button{
+  white-space:nowrap;
+  border:1px solid #e5c8ff;
+  background:#fff;
+  border-radius:20px;
+  padding:8px 11px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.aiInput{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:10px;
+  border-top:1px solid #eee;
+  background:white;
+}
+
+#aiInput{
+  flex:1;
+  border:1px solid #ddd;
+  border-radius:22px;
+  padding:11px 14px;
+  outline:none;
+}
+
+.aiSend,.aiMic{
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.aiSend{
+  background:#9b8cff;
+  color:white;
+}
+
+.aiMic{
+  background:#f4f1ff;
+}
+</style>
+
+<button id="aiBtn" onclick="toggleAI()">🤖</button>
+
+<div id="aiBox">
+
+  <div class="aiHead">
+    <div class="aiTitle">
+      <div class="aiLogo">🤖</div>
+      <div>
+        <div class="aiName">Jibran AI Assistant</div>
+        <div class="aiStatus">● Fast assistance</div>
+      </div>
+    </div>
+
+    <button class="aiClose" onclick="toggleAI()">×</button>
+  </div>
+
+  <div id="aiMessages">
+    <div class="aiMsg bot">
+      👋 Hi! I'm Jibran's AI Assistant.<br>
+      I can help you find products, prices, offers and ordering options.
+    </div>
+  </div>
+
+  <div class="aiQuick">
+    <button onclick="quickAI('Show products')">🛍️ Products</button>
+    <button onclick="quickAI('What offers are available?')">🏷️ Offers</button>
+    <button onclick="quickAI('How can I buy?')">⚡ Buy Now</button>
+    <button onclick="quickAI('Customer care')">📞 Help</button>
+  </div>
+
+  <div class="aiInput">
+    <button class="aiMic" onclick="startVoice()">🎤</button>
+
+    <input
+      id="aiInput"
+      type="text"
+      placeholder="Ask Jibran AI..."
+      onkeydown="if(event.key==='Enter') sendAI()"
+    >
+
+    <button class="aiSend" onclick="sendAI()">➤</button>
+  </div>
+
+</div>
+
+<script>
+function toggleAI(){
+  const box=document.getElementById("aiBox");
+  box.style.display =
+    box.style.display==="block" ? "none" : "block";
+}
+
+function addAI(text,type="bot"){
+  const area=document.getElementById("aiMessages");
+
+  const msg=document.createElement("div");
+  msg.className="aiMsg "+type;
+  msg.innerHTML=text;
+
+  area.appendChild(msg);
+  area.scrollTop=area.scrollHeight;
+}
+
+function quickAI(text){
+  document.getElementById("aiInput").value=text;
+  sendAI();
+}
+
+function sendAI(){
+
+  const input=document.getElementById("aiInput");
+  const text=input.value.trim();
+
+  if(!text) return;
+
+  addAI(text,"user");
+  input.value="";
+
+  // Fast AI-style response
+  setTimeout(()=>{
+    const q=text.toLowerCase();
+
+    let reply="";
+
+    if(q.includes("product") || q.includes("show")){
+      reply=
+      "🛍️ Sure! Check the <b>Our Products</b> section above. You can select a product to see its photo, price and details.";
+    }
+
+    else if(q.includes("offer") || q.includes("discount")){
+      reply=
+      "🏷️ Current offer: <b>DIY Painting Kit</b><br>MRP ₹180 → <b>₹135</b> with 25% OFF.";
+    }
+
+    else if(q.includes("buy") || q.includes("order")){
+      reply=
+      "⚡ Select your product and tap <b>Buy Now</b>. You can also add it to your cart first.";
+    }
+
+    else if(q.includes("cart")){
+      reply=
+      "🛒 Add your favourite products to the cart and review them before buying.";
+    }
+
+    else if(q.includes("customer") || q.includes("help") || q.includes("contact")){
+      reply=
+      "📞 Customer Care / WhatsApp:<br><b>9150608692</b><br><br>You can contact us for product or order help.";
+    }
+
+    else if(q.includes("painting")){
+      reply=
+      "🎨 The DIY Painting Kit includes plaster figures, 6 assorted paint colours and a paint brush.";
+    }
+
+    else if(q.includes("price")){
+      reply=
+      "💰 The DIY Painting Kit is currently <b>₹135</b> after 25% OFF.";
+    }
+
+    else{
+      reply=
+      "🤖 I can quickly help with <b>products, prices, offers, cart, buying and customer care</b>. Try one of the quick options below.";
+    }
+
+    addAI(reply,"bot");
+
+  },350);
+}
+
+function startVoice(){
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+  if(!SpeechRecognition){
+    addAI("🎤 Voice input is not supported in this browser.","bot");
+    return;
+  }
+
+  const recognition=new SpeechRecognition();
+
+  recognition.lang="en-IN";
+  recognition.interimResults=false;
+
+  recognition.onresult=function(event){
+    document.getElementById("aiInput").value=
+      event.results[0][0].transcript;
+
+    sendAI();
+  };
+
+  recognition.start();
+}
+</script>
+
+<!-- ================= END AI ASSISTANT ================= -->
