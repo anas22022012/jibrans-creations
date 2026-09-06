@@ -3,8 +3,8 @@
 // ===============================
 
 // ⚠️ यहाँ अपनी Admin email/password डालें
-const ADMIN_EMAIL = "jibran.shahban@gmail.com";
-const ADMIN_PASSWORD = "YOUR_PASSWORD_HERE";
+const ADMIN_EMAIL='jibran.shahban@gmail.com';
+const ADMIN_PASSWORD='YOUR_NEW_PASSWORD';
 
 // Get elements safely
 const loginBox = document.getElementById("login");
