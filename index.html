@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jibran's Creations</title>
 
 <style>
@@ -10,235 +10,194 @@
 body{
  margin:0;
  font-family:Arial,sans-serif;
- background:linear-gradient(135deg,#fff0f7,#fffde8,#e8f8ff);
- color:#172554
+ background:linear-gradient(135deg,#fff3f8,#f5f1ff,#eefaff);
+ color:#20284d;
 }
 header{
- position:sticky;top:0;z-index:20;
- background:#ffffffee;
- backdrop-filter:blur(15px);
- padding:10px 16px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- box-shadow:0 3px 20px #0001
+ position:sticky;top:0;z-index:1000;
+ background:#ffffffed;
+ backdrop-filter:blur(12px);
+ padding:10px 15px;
+ display:flex;align-items:center;justify-content:space-between;
+ box-shadow:0 3px 18px #0001;
 }
-.logo{
- width:62px;height:62px;
- object-fit:contain;
- border-radius:50%
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{
+ width:52px;height:52px;border-radius:50%;object-fit:contain;
 }
-.icons{display:flex;gap:7px}
-.icon{
- border:0;background:#f8d9ec;
- border-radius:13px;
- padding:11px;
- font-size:18px;
- cursor:pointer
+.brand b{font-size:17px}
+.brand small{color:#777}
+.headBtns{display:flex;gap:7px}
+.headBtns button{
+ width:42px;height:42px;border:0;border-radius:13px;
+ background:#f4e8ff;font-size:19px;cursor:pointer;
 }
-.cart{position:relative}
-.count{
- position:absolute;top:-7px;right:-5px;
- background:#e91e63;color:white;
- width:20px;height:20px;
- border-radius:50%;
- font-size:11px;padding-top:4px
+#cartCount{
+ background:#e91e63;color:white;border-radius:10px;
+ padding:2px 5px;font-size:10px;
 }
-.hero{text-align:center;padding:30px 15px 15px}
-.hero img{
- width:120px;height:120px;
- object-fit:contain;background:white;
- border-radius:50%;padding:5px;
- box-shadow:0 5px 25px #0001
-}
-.hero h1{font-size:30px;margin:12px 0 5px}
-.hero p{color:#666}
-
 .search{
- max-width:700px;margin:15px auto;
- padding:0 15px;display:flex;gap:7px
+ max-width:800px;margin:18px auto;padding:0 15px;
 }
-.search input{
- flex:1;padding:14px;
- border:2px solid #efd6e7;
- border-radius:15px;
- font-size:16px;outline:none
+.searchBox{
+ background:white;border-radius:30px;padding:7px;
+ display:flex;align-items:center;gap:5px;
+ box-shadow:0 4px 18px #0001;
 }
-.search button{
- border:0;border-radius:14px;
- background:#e9a8cf;
- padding:0 15px;font-size:18px
+.searchBox input{
+ flex:1;border:0;outline:0;padding:12px;font-size:15px;
 }
-
+.searchBox button{
+ width:40px;height:40px;border:0;border-radius:50%;
+ background:#f0e6ff;cursor:pointer;
+}
+.hero{
+ max-width:900px;margin:15px auto;padding:35px 20px;
+ text-align:center;border-radius:28px;
+ background:linear-gradient(135deg,#ffe2f0,#fff3b0,#def5ff);
+}
+.hero img{
+ width:100px;height:100px;border-radius:50%;
+ object-fit:contain;background:white;
+}
+.hero h1{margin:12px 0 5px}
+.hero p{color:#666}
 .container{
- max-width:950px;
- margin:auto;padding:10px 15px 60px
+ max-width:900px;margin:auto;padding:5px 15px 60px;
 }
-.title{
- font-size:26px;margin:25px 0 15px
-}
-.featured{
- display:flex;
- gap:10px;
- overflow-x:auto;
- padding:5px 0 15px
-}
-.feature{
- min-width:220px;
- background:#fff;
- border-radius:18px;
- padding:10px;
- box-shadow:0 5px 18px #0001
-}
-.feature img{
- width:100%;height:130px;
- object-fit:cover;border-radius:13px
-}
-.feature h3{font-size:15px;margin:8px 0}
-.feature b{color:#e91e63}
-
+.sectionTitle{margin:25px 3px 15px}
 .product{
- background:#fff;
- border-radius:24px;
- padding:15px;
- box-shadow:0 8px 30px #00000012;
- margin-top:10px
+ background:white;border-radius:24px;overflow:hidden;
+ box-shadow:0 7px 28px #0002;margin-bottom:22px;
 }
-.photo-wrap{position:relative}
-.product-photo{
- width:100%;height:350px;
- object-fit:cover;border-radius:18px
+.productImg{
+ width:100%;height:350px;object-fit:cover;display:block;
 }
-.badge{
- position:absolute;top:12px;left:12px;
- background:#e91e63;color:#fff;
- padding:8px 12px;border-radius:10px;
- font-weight:bold
-}
-.ai-badge{
- position:absolute;top:12px;right:12px;
- background:#7158ff;color:white;
- padding:8px 12px;border-radius:10px
-}
-.product h2{font-size:22px}
-.desc{color:#555;line-height:1.5}
-.price{
- display:flex;align-items:center;
- gap:10px;flex-wrap:wrap
+.productInfo{padding:20px}
+.productName{font-size:22px;margin-bottom:9px}
+.desc{color:#555;line-height:1.55}
+.priceRow{
+ display:flex;align-items:center;gap:8px;
+ flex-wrap:wrap;margin-top:15px;
 }
 .old{text-decoration:line-through;color:#888}
-.new{font-size:28px;font-weight:bold;color:#e91e63}
+.price{font-size:27px;font-weight:bold;color:#e91e63}
 .off{
- background:#e4f8e9;
- color:#16803c;
- padding:5px 9px;border-radius:8px
+ background:#def7e7;color:#168348;
+ padding:5px 8px;border-radius:8px;font-size:12px;font-weight:bold;
 }
-.delivery{color:#666;margin:8px 0}
-.buttons{display:flex;gap:10px}
-.buttons button{
- flex:1;padding:14px;
- border:0;border-radius:13px;
- font-weight:bold;font-size:16px
+.delivery{color:#666;margin-top:8px}
+.actions{display:flex;gap:8px;margin-top:18px}
+.actions button{
+ border:0;border-radius:13px;padding:13px 10px;
+ font-weight:bold;cursor:pointer;
 }
-.add{background:#f7d7e9;color:#8a245a}
-.buy{background:#e91e63;color:#fff}
-.wish{
- width:50px;
- border:0;border-radius:13px;
- background:#eee;
- font-size:20px
+.cartBtn{flex:1;background:#ffe18d}
+.buyBtn{flex:1;background:#e68bc1;color:white}
+.heart{
+ width:52px;background:white!important;
+ border:1px solid #ddd!important;
+ font-size:29px;color:#222;
 }
-
+.heart.liked{
+ color:#e91e63;
+ background:#fff1f6!important;
+ border-color:#f1b1c9!important;
+}
+.empty{
+ background:white;border-radius:22px;padding:40px 20px;
+ text-align:center;box-shadow:0 4px 18px #0001;
+}
+.features{
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:12px;margin:25px 0;
+}
+.feature{
+ background:white;padding:18px;text-align:center;
+ border-radius:17px;box-shadow:0 3px 13px #0001;
+}
 .contact{
- margin-top:25px;
- background:#fff;
- border-radius:20px;
- padding:20px;
- text-align:center
+ background:white;border-radius:22px;padding:22px;
+ text-align:center;box-shadow:0 4px 18px #0001;
 }
 .contact a{
- display:inline-block;
- color:#fff;
- text-decoration:none;
- padding:12px 17px;
- border-radius:12px;
- margin:5px;
- background:#25a244
+ display:block;text-decoration:none;padding:13px;
+ margin-top:10px;border-radius:12px;font-weight:bold;
 }
-.call{background:#5264d8!important}
+.call{background:#e9efff;color:#3157a5}
+.whatsapp{background:#ddf8e5;color:#13823a}
 
-.ai{
- position:fixed;
- right:18px;bottom:18px;
- width:60px;height:60px;
- border:0;border-radius:50%;
- background:#7158ff;color:white;
- font-size:25px;
- box-shadow:0 6px 25px #0003;
- z-index:15
+/* AI */
+#aiBtn{
+ position:fixed;right:18px;bottom:20px;
+ width:60px;height:60px;border:0;border-radius:50%;
+ background:linear-gradient(135deg,#ff8fc7,#8d82ff);
+ color:white;font-size:26px;
+ box-shadow:0 8px 25px #0003;z-index:3000;cursor:pointer;
 }
-
-.cart-panel{
- position:fixed;
- right:-100%;
- top:0;
- width:min(400px,100%);
- height:100%;
- background:#fff;
- z-index:50;
- padding:20px;
- box-shadow:-5px 0 25px #0002;
- transition:.3s;
- overflow:auto
+#aiBox{
+ display:none;position:fixed;right:18px;bottom:90px;
+ width:350px;max-width:calc(100vw - 36px);height:520px;
+ background:white;border-radius:24px;overflow:hidden;
+ box-shadow:0 15px 50px #0004;z-index:3001;
 }
-.cart-panel.open{right:0}
-.close{
- float:right;border:0;
- padding:9px 13px;border-radius:10px
+.aiHead{
+ padding:16px;color:white;
+ background:linear-gradient(135deg,#ff8fc7,#8d82ff);
+ display:flex;justify-content:space-between;align-items:center;
 }
-.cart-item{
- margin-top:55px;
- background:#fff0f7;
- padding:15px;border-radius:15px
+.aiLeft{display:flex;gap:10px;align-items:center}
+.aiAvatar{
+ width:42px;height:42px;border-radius:50%;
+ background:#ffffff33;display:flex;align-items:center;
+ justify-content:center;font-size:22px;
 }
-.checkout{
- width:100%;
- border:0;border-radius:12px;
- padding:14px;
- background:#e91e63;color:#fff;
- font-weight:bold
+.aiClose{border:0;background:none;color:white;font-size:25px}
+#messages{
+ height:325px;overflow-y:auto;padding:14px;background:#fafafa;
 }
-
-.camera{
- display:none;
- position:fixed;inset:0;
- background:#000c;
- z-index:60;
- align-items:center;
- justify-content:center;
- padding:20px
+.msg{
+ max-width:82%;padding:11px 13px;margin:8px 0;
+ border-radius:15px;font-size:14px;line-height:1.4;
 }
-.camera-box{
- background:white;
- padding:20px;
- border-radius:20px;
- width:min(450px,100%);
- text-align:center
+.bot{background:white;border:1px solid #eee}
+.user{margin-left:auto;background:#e9ddff}
+.quick{
+ display:flex;gap:6px;overflow-x:auto;padding:9px;
+ border-top:1px solid #eee;
 }
-video{width:100%;border-radius:15px}
-.camera-box button{
- padding:12px 17px;
- border:0;border-radius:12px;
- margin:5px
+.quick button{
+ white-space:nowrap;border:1px solid #dfc8ff;
+ background:white;border-radius:20px;padding:8px 10px;
+ cursor:pointer;font-size:12px;
 }
-
-footer{text-align:center;padding:25px;color:#777}
+.aiInput{
+ display:flex;gap:6px;padding:9px;border-top:1px solid #eee;
+}
+.aiInput input{
+ flex:1;border:1px solid #ddd;border-radius:22px;
+ outline:0;padding:11px;
+}
+.aiInput button{
+ width:40px;height:40px;border:0;border-radius:50%;cursor:pointer;
+}
+.send{background:#8d82ff;color:white}
+#toast{
+ display:none;position:fixed;bottom:25px;left:50%;
+ transform:translateX(-50%);z-index:5000;
+ background:#20284d;color:white;padding:12px 20px;
+ border-radius:25px;
+}
+footer{text-align:center;color:#777;padding:25px}
 
 @media(max-width:600px){
- .product-photo{height:260px}
- .buttons{flex-wrap:wrap}
- .buttons button{min-width:40%}
- .hero h1{font-size:25px}
+ .brand img{width:45px;height:45px}
+ .brand b{font-size:14px}
+ .headBtns button{width:38px;height:38px}
+ .productImg{height:270px}
+ .actions{flex-wrap:wrap}
+ .heart{width:52px}
+ .cartBtn,.buyBtn{min-width:40%}
 }
 </style>
 </head>
@@ -246,722 +205,660 @@ footer{text-align:center;padding:25px;color:#777}
 <body>
 
 <header>
-<img src="logo.jpg" class="logo" alt="Jibran's Creations">
+ <div class="brand">
+  <img id="logo" src="logo.jpg" alt="Logo">
+  <div>
+   <b>Jibran's Creations</b><br>
+   <small>Creative products</small>
+  </div>
+ </div>
 
-<div class="icons">
-<button class="icon" onclick="focusSearch()">🔎</button>
-<button class="icon" onclick="voiceSearch()">🎤</button>
-<button class="icon" onclick="openCamera()">📷</button>
-<button class="icon cart" onclick="openCart()">
-🛒 <span id="count" class="count">0</span>
-</button>
-</div>
+ <div class="headBtns">
+  <button onclick="focusSearch()">🔎</button>
+  <button onclick="openWishlist()">❤️</button>
+  <button onclick="openCart()">🛒 <span id="cartCount">0</span></button>
+ </div>
 </header>
 
-<section class="hero">
-<img src="logo.jpg" alt="Logo">
-<h1>Jibran's Creations</h1>
-<p>🎨 Paint • Create • Enjoy</p>
-<p>Creative products for everyone ✨</p>
-</section>
-
 <div class="search">
-<input id="search" placeholder="Search products..." oninput="search()">
-<button onclick="voiceSearch()">🎤</button>
-<button onclick="openCamera()">📷</button>
+ <div class="searchBox">
+  <input id="searchInput" placeholder="Search products..."
+         onkeydown="if(event.key==='Enter')searchProducts()">
+  <button onclick="voiceSearch()">🎤</button>
+  <button onclick="cameraSearch()">📷</button>
+  <button onclick="searchProducts()">🔎</button>
+ </div>
 </div>
+
+<section class="hero">
+ <img id="heroLogo" src="logo.jpg">
+ <h1>Jibran's Creations</h1>
+ <p>Creative products for creative minds ✨</p>
+</section>
 
 <main class="container">
 
-<h2 class="title">🤖 AI Featured Products</h2>
+<h2 class="sectionTitle">🤖 AI Featured</h2>
+<div id="featured"></div>
 
-<div class="featured">
+<h2 class="sectionTitle">🛍️ Our Products</h2>
+<div id="products"></div>
 
-<div class="feature">
-<img src="product.jpg">
-<h3>🎨 DIY Painting Kit</h3>
-<b>₹135</b>
-</div>
-
-<div class="feature">
-<img src="product.jpg">
-<h3>⭐ Creative Art Set</h3>
-<b>₹135</b>
-</div>
-
-</div>
-
-<h2 class="title">🛍️ Our Products</h2>
-
-<div class="product" id="product">
-
-<div class="photo-wrap">
-
-<img src="product.jpg"
-class="product-photo"
-alt="DIY Painting Kit">
-
-<span class="badge">25% OFF</span>
-<span class="ai-badge">🤖 AI Featured</span>
-
-</div>
-
-<h2>DIY Painting Kit – 3D Plaster Art Set 🎨🖌️</h2>
-
-<div class="desc">
-Paint • Create • Enjoy! 🎨
-
-Kids ke liye fun aur creative activity kit.
-Is set mein 3 plaster figures, 6 assorted paint
-colours aur 1 paint brush included hai.
-
-<br><br>
-
-<b>1 Set Contains:</b><br>
-• 3 Plaster Figures<br>
-• 6 Assorted Paint Colours<br>
-• 1 Paint Brush
-</div>
-
-<div class="price">
-<span class="old">₹180</span>
-<span class="new">₹135</span>
-<span class="off">25% OFF</span>
-</div>
-
-<div class="delivery">
-🚚 Delivery Charge: ₹100
-</div>
-
-<div class="buttons">
-
-<button class="add" onclick="addCart()">
-🛒 Add to Cart
-</button>
-
-<button class="buy" onclick="buyNow()">
-⚡ Buy Now
-</button>
-
-<button class="wish" onclick="wishlist()">
-❤️
-</button>
-
-</div>
-
+<div class="features">
+ <div class="feature">🎨<br><b>Creative Products</b></div>
+ <div class="feature">🛒<br><b>Easy Shopping</b></div>
+ <div class="feature">❤️<br><b>Wishlist</b></div>
+ <div class="feature">📞<br><b>Customer Support</b></div>
 </div>
 
 <div class="contact">
+ <h2>📞 Customer Care</h2>
+ <p>Need help with your order?</p>
 
-<h2>📞 Customer Care</h2>
+ <a class="call" href="tel:9150608692">
+  📞 Call 9150608692
+ </a>
 
-<p>We're here to help you!</p>
-
-<a class="call" href="tel:9150608692">
-📞 Call
-</a>
-
-<a href="https://wa.me/919150608692" target="_blank">
-💬 WhatsApp
-</a>
-
+ <a class="whatsapp" href="https://wa.me/919150608692">
+  💬 WhatsApp
+ </a>
 </div>
 
 </main>
 
 <footer>
-© 2026 Jibran's Creations • KayB Enterprises
+ © 2026 Jibran's Creations
 </footer>
-
-<button class="ai" onclick="assistant()">
-🤖
-</button>
-
-<div class="cart-panel" id="cartPanel">
-
-<button class="close" onclick="closeCart()">✕</button>
-
-<h2>🛒 My Cart</h2>
-
-<div id="cartContent">
-<p>Your cart is empty.</p>
-</div>
-
-</div>
-
-<div class="camera" id="cameraModal">
-
-<div class="camera-box">
-
-<h2>📷 Find Product</h2>
-
-<video id="video" autoplay playsinline></video>
-
-<p>Product ko camera se find karein.</p>
-
-<button onclick="findProduct()">🔎 Find</button>
-<button onclick="closeCamera()">Close</button>
-
-</div>
-
-</div>
-
-<script>
-
-let cart=0;
-
-function addCart(){
-
-cart++;
-
-document.getElementById("count").innerText=cart;
-
-updateCart();
-
-alert("🛒 Product added to cart!");
-
-}
-
-function updateCart(){
-
-let total=(135*cart)+100;
-
-document.getElementById("cartContent").innerHTML=`
-
-<div class="cart-item">
-
-<h3>DIY Painting Kit</h3>
-
-<p>Quantity: ${cart}</p>
-
-<p>Product Price: ₹${135*cart}</p>
-
-<p>Delivery: ₹100</p>
-
-<hr>
-
-<h3>Total: ₹${total}</h3>
-
-<button class="checkout" onclick="buyNow()">
-⚡ Buy Now
-</button>
-
-</div>
-
-`;
-
-}
-
-function openCart(){
-document.getElementById("cartPanel").classList.add("open");
-updateCart();
-}
-
-function closeCart(){
-document.getElementById("cartPanel").classList.remove("open");
-}
-
-function buyNow(){
-
-let message=
-"Hello Jibran's Creations!%0A%0A"+
-"I want to buy DIY Painting Kit.%0A"+
-"Price: ₹135%0A"+
-"Delivery: ₹100%0A"+
-"Total: ₹235%0A%0A"+
-"Please confirm my order.";
-
-window.open(
-"https://wa.me/919150608692?text="+message,
-"_blank"
-);
-
-}
-
-function wishlist(){
-alert("❤️ Added to wishlist!");
-}
-
-function focusSearch(){
-document.getElementById("search").focus();
-}
-
-function search(){
-
-let q=document
-.getElementById("search")
-.value.toLowerCase();
-
-let product=document.getElementById("product");
-
-product.style.display=
-q===""||
-q.includes("diy")||
-q.includes("painting")||
-q.includes("plaster")||
-q.includes("art")
-?"block":"none";
-
-}
-
-function voiceSearch(){
-
-let SpeechRecognition=
-window.SpeechRecognition||
-window.webkitSpeechRecognition;
-
-if(!SpeechRecognition){
-alert("Voice search browser mein supported nahi hai.");
-return;
-}
-
-let recognition=new SpeechRecognition();
-
-recognition.lang="en-IN";
-
-recognition.start();
-
-recognition.onresult=function(e){
-
-let text=e.results[0][0].transcript;
-
-document.getElementById("search").value=text;
-
-search();
-
-};
-
-}
-
-let stream=null;
-
-async function openCamera(){
-
-document.getElementById("cameraModal")
-.style.display="flex";
-
-try{
-
-stream=await navigator.mediaDevices
-.getUserMedia({
-video:{facingMode:"environment"}
-});
-
-document.getElementById("video")
-.srcObject=stream;
-
-}catch(e){
-
-alert("Camera permission allow karo.");
-
-}
-
-}
-
-function closeCamera(){
-
-document.getElementById("cameraModal")
-.style.display="none";
-
-if(stream){
-
-stream.getTracks()
-.forEach(t=>t.stop());
-
-stream=null;
-
-}
-
-}
-
-function findProduct(){
-
-closeCamera();
-
-document.getElementById("search").value=
-"DIY Painting";
-
-search();
-
-document.getElementById("product")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-alert("🤖 AI Find Product: DIY Painting Kit found!");
-
-}
-
-function assistant(){
-
-let q=prompt(
-"🤖 Jibran's AI Assistant\n\n"+
-"Ask about:\n"+
-"• Product\n"+
-"• Price\n"+
-"• Discount\n"+
-"• Delivery\n"+
-"• Order"
-);
-
-if(!q)return;
-
-q=q.toLowerCase();
-
-if(q.includes("price")||
-q.includes("rate")){
-
-alert(
-"💰 MRP: ₹180\n"+
-"🏷️ 25% OFF\n"+
-"✨ Sale Price: ₹135\n"+
-"🚚 Delivery: ₹100"
-);
-
-}else if(q.includes("discount")){
-
-alert("🏷️ You get 25% OFF!");
-
-}else if(q.includes("delivery")){
-
-alert("🚚 Delivery charge is ₹100.");
-
-}else if(q.includes("order")){
-
-buyNow();
-
-}else{
-
-alert(
-"🤖 I can help with product, price, "+
-"discount, delivery and orders."
-);
-
-}
-
-}
-
-</script>
-
-</body>
-</html>
-<!-- ================= AI ASSISTANT ================= -->
-
-<style>
-#aiBtn{
-  position:fixed;
-  right:18px;
-  bottom:20px;
-  width:58px;
-  height:58px;
-  border:0;
-  border-radius:50%;
-  background:linear-gradient(135deg,#ff8fc7,#9b8cff);
-  color:white;
-  font-size:25px;
-  box-shadow:0 8px 25px #0003;
-  z-index:9999;
-  cursor:pointer;
-}
-
-#aiBox{
-  display:none;
-  position:fixed;
-  right:18px;
-  bottom:88px;
-  width:340px;
-  max-width:calc(100vw - 36px);
-  height:520px;
-  background:#fff;
-  border-radius:24px;
-  overflow:hidden;
-  box-shadow:0 15px 50px #0004;
-  z-index:10000;
-  border:1px solid #eee;
-  font-family:Arial,sans-serif;
-}
-
-.aiHead{
-  padding:17px;
-  color:white;
-  background:linear-gradient(135deg,#ff8fc7,#8d82ff);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.aiTitle{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.aiLogo{
-  width:40px;
-  height:40px;
-  background:#ffffff33;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-}
-
-.aiName{
-  font-size:17px;
-  font-weight:bold;
-}
-
-.aiStatus{
-  font-size:11px;
-  opacity:.9;
-  margin-top:3px;
-}
-
-.aiClose{
-  background:none;
-  border:0;
-  color:white;
-  font-size:23px;
-  cursor:pointer;
-}
-
-#aiMessages{
-  height:330px;
-  overflow-y:auto;
-  padding:15px;
-  background:#fafafa;
-}
-
-.aiMsg{
-  max-width:82%;
-  padding:11px 13px;
-  margin:8px 0;
-  border-radius:15px;
-  font-size:14px;
-  line-height:1.4;
-}
-
-.aiMsg.bot{
-  background:#fff;
-  border:1px solid #eee;
-  color:#333;
-}
-
-.aiMsg.user{
-  background:#eadfff;
-  margin-left:auto;
-  color:#333;
-}
-
-.aiQuick{
-  padding:10px;
-  display:flex;
-  gap:7px;
-  overflow-x:auto;
-  background:white;
-  border-top:1px solid #eee;
-}
-
-.aiQuick button{
-  white-space:nowrap;
-  border:1px solid #e5c8ff;
-  background:#fff;
-  border-radius:20px;
-  padding:8px 11px;
-  cursor:pointer;
-  font-size:12px;
-}
-
-.aiInput{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  padding:10px;
-  border-top:1px solid #eee;
-  background:white;
-}
-
-#aiInput{
-  flex:1;
-  border:1px solid #ddd;
-  border-radius:22px;
-  padding:11px 14px;
-  outline:none;
-}
-
-.aiSend,.aiMic{
-  width:40px;
-  height:40px;
-  border:0;
-  border-radius:50%;
-  cursor:pointer;
-}
-
-.aiSend{
-  background:#9b8cff;
-  color:white;
-}
-
-.aiMic{
-  background:#f4f1ff;
-}
-</style>
 
 <button id="aiBtn" onclick="toggleAI()">🤖</button>
 
 <div id="aiBox">
 
-  <div class="aiHead">
-    <div class="aiTitle">
-      <div class="aiLogo">🤖</div>
-      <div>
-        <div class="aiName">Jibran AI Assistant</div>
-        <div class="aiStatus">● Fast assistance</div>
-      </div>
-    </div>
-
-    <button class="aiClose" onclick="toggleAI()">×</button>
+ <div class="aiHead">
+  <div class="aiLeft">
+   <div class="aiAvatar">🤖</div>
+   <div>
+    <b>Jibran AI Assistant</b><br>
+    <small>● Fast assistance</small>
+   </div>
   </div>
+  <button class="aiClose" onclick="toggleAI()">×</button>
+ </div>
 
-  <div id="aiMessages">
-    <div class="aiMsg bot">
-      👋 Hi! I'm Jibran's AI Assistant.<br>
-      I can help you find products, prices, offers and ordering options.
-    </div>
+ <div id="messages">
+  <div class="msg bot">
+   👋 Hi! I'm Jibran's AI Assistant.<br><br>
+   I can help you find products, check prices,
+   offers and ordering options.
   </div>
+ </div>
 
-  <div class="aiQuick">
-    <button onclick="quickAI('Show products')">🛍️ Products</button>
-    <button onclick="quickAI('What offers are available?')">🏷️ Offers</button>
-    <button onclick="quickAI('How can I buy?')">⚡ Buy Now</button>
-    <button onclick="quickAI('Customer care')">📞 Help</button>
-  </div>
+ <div class="quick">
+  <button onclick="quickAI('Show products')">🛍️ Products</button>
+  <button onclick="quickAI('Price')">💰 Price</button>
+  <button onclick="quickAI('Offers')">🏷️ Offers</button>
+  <button onclick="quickAI('How to buy')">⚡ Buy</button>
+ </div>
 
-  <div class="aiInput">
-    <button class="aiMic" onclick="startVoice()">🎤</button>
-
-    <input
-      id="aiInput"
-      type="text"
-      placeholder="Ask Jibran AI..."
-      onkeydown="if(event.key==='Enter') sendAI()"
-    >
-
-    <button class="aiSend" onclick="sendAI()">➤</button>
-  </div>
+ <div class="aiInput">
+  <button onclick="voiceAI()">🎤</button>
+  <input id="aiInput" placeholder="Ask AI..."
+         onkeydown="if(event.key==='Enter')sendAI()">
+  <button class="send" onclick="sendAI()">➤</button>
+ </div>
 
 </div>
 
+<div id="toast"></div>
+
 <script>
+
+/* ================= DATA ================= */
+
+let products=[];
+
+function loadProducts(){
+
+ /*
+  Admin product data:
+  jibranProducts
+ */
+
+ try{
+  products=JSON.parse(
+   localStorage.getItem("jibranProducts") || "[]"
+  );
+ }catch(e){
+  products=[];
+ }
+
+ renderProducts();
+}
+
+
+/* ================= PRODUCTS ================= */
+
+function renderProducts(){
+
+ const box=document.getElementById("products");
+ const featured=document.getElementById("featured");
+
+ if(!products.length){
+
+  box.innerHTML=`
+   <div class="empty">
+    <div style="font-size:50px">🛍️</div>
+    <h2>No products available</h2>
+    <p>Products added from the Admin Panel will appear here.</p>
+   </div>
+  `;
+
+  featured.innerHTML="";
+  return;
+ }
+
+ box.innerHTML=products.map((p,i)=>{
+
+  const discount=p.discount || 0;
+
+  return `
+  <div class="product"
+       data-name="${safe(p.name)}">
+
+   <img class="productImg"
+        src="${safe(p.image)}"
+        alt="${safe(p.name)}">
+
+   <div class="productInfo">
+
+    <h2 class="productName">
+     ${safe(p.name)}
+    </h2>
+
+    <p class="desc">
+     ${safe(p.description || "")}
+    </p>
+
+    <div class="priceRow">
+
+     ${p.mrp ? `<span class="old">₹${p.mrp}</span>` : ""}
+
+     ${p.price ? `<span class="price">₹${p.price}</span>` : ""}
+
+     ${discount ?
+      `<span class="off">${discount}% OFF</span>` : ""}
+
+    </div>
+
+    ${p.delivery ?
+      `<p class="delivery">🚚 Delivery: ₹${p.delivery}</p>` : ""}
+
+    <div class="actions">
+
+     <button class="cartBtn"
+      onclick="addCart(${i})">
+      🛒 Add to Cart
+     </button>
+
+     <button class="buyBtn"
+      onclick="buyProduct(${i})">
+      ⚡ Buy Now
+     </button>
+
+     <button id="heart-${i}"
+      class="heart ${isLiked(p) ? "liked":""}"
+      onclick="toggleWishlist(${i})">
+      ${isLiked(p) ? "♥":"♡"}
+     </button>
+
+    </div>
+
+   </div>
+  </div>
+  `;
+ }).join("");
+
+ /* Featured */
+
+ featured.innerHTML=products.slice(0,5).map(p=>`
+  <div style="
+   background:white;border-radius:20px;padding:12px;
+   margin-bottom:10px;box-shadow:0 4px 15px #0001;
+  ">
+   <b>${safe(p.name)}</b>
+   ${p.price ? `<span style="color:#e91e63;font-weight:bold">
+   — ₹${p.price}</span>`:""}
+  </div>
+ `).join("");
+
+}
+
+
+/* ================= WISHLIST ================= */
+
+function isLiked(product){
+
+ const list=JSON.parse(
+  localStorage.getItem("jibranWishlist") || "[]"
+ );
+
+ return list.some(
+  p => p.name===product.name
+ );
+
+}
+
+
+function toggleWishlist(index){
+
+ const product=products[index];
+
+ let list=JSON.parse(
+  localStorage.getItem("jibranWishlist") || "[]"
+ );
+
+ const found=list.findIndex(
+  p=>p.name===product.name
+ );
+
+ if(found===-1){
+
+  list.push(product);
+
+  showToast("❤️ Added to Wishlist!");
+
+ }else{
+
+  list.splice(found,1);
+
+  showToast("♡ Removed from Wishlist");
+
+ }
+
+ localStorage.setItem(
+  "jibranWishlist",
+  JSON.stringify(list)
+ );
+
+ renderProducts();
+
+}
+
+
+function openWishlist(){
+
+ window.location.href="wishlist.html";
+
+}
+
+
+/* ================= CART ================= */
+
+function getCart(){
+
+ return JSON.parse(
+  localStorage.getItem("jibranCartItems") || "[]"
+ );
+
+}
+
+
+function addCart(index){
+
+ const product=products[index];
+
+ let cart=getCart();
+
+ cart.push(product);
+
+ localStorage.setItem(
+  "jibranCartItems",
+  JSON.stringify(cart)
+ );
+
+ updateCartCount();
+
+ showToast("🛒 Added to Cart!");
+
+}
+
+
+function updateCartCount(){
+
+ const cart=getCart();
+
+ document.getElementById("cartCount").innerText=cart.length;
+
+}
+
+
+function openCart(){
+
+ const cart=getCart();
+
+ if(!cart.length){
+
+  showToast("🛒 Your cart is empty");
+
+  return;
+ }
+
+ showToast("🛒 "+cart.length+" product(s) in cart");
+
+}
+
+
+/* ================= BUY ================= */
+
+function buyProduct(index){
+
+ const p=products[index];
+
+ const msg=
+ "Hello Jibran's Creations,%0A%0A"+
+ "I want to buy:%0A"+
+ encodeURIComponent(p.name || "")+
+ "%0A";
+
+ if(p.price){
+  msg+="Price: ₹"+p.price+"%0A";
+ }
+
+ msg+="%0APlease confirm my order.";
+
+ window.open(
+  "https://wa.me/919150608692?text="+msg,
+  "_blank"
+ );
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function focusSearch(){
+
+ document.getElementById("searchInput").focus();
+
+}
+
+
+function searchProducts(){
+
+ const q=document.getElementById("searchInput")
+  .value.toLowerCase().trim();
+
+ const cards=document.querySelectorAll(".product");
+
+ if(!q){
+
+  cards.forEach(c=>c.style.display="block");
+  return;
+
+ }
+
+ let found=false;
+
+ cards.forEach(card=>{
+
+  const name=card
+   .getAttribute("data-name")
+   .toLowerCase();
+
+  if(name.includes(q)){
+
+   card.style.display="block";
+   found=true;
+
+  }else{
+
+   card.style.display="none";
+
+  }
+
+ });
+
+ if(found){
+
+  document.querySelector(".product[style='display: block;']")
+   ?.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+   });
+
+ }else{
+
+  showToast("🔎 Product not found");
+
+ }
+
+}
+
+
+/* ================= VOICE ================= */
+
+function voiceSearch(){
+
+ const SpeechRecognition=
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+ if(!SpeechRecognition){
+
+  showToast("🎤 Voice search is not supported");
+  return;
+
+ }
+
+ const r=new SpeechRecognition();
+
+ r.lang="en-IN";
+
+ r.onresult=function(e){
+
+  document.getElementById("searchInput").value=
+   e.results[0][0].transcript;
+
+  searchProducts();
+
+ };
+
+ r.start();
+
+}
+
+
+function cameraSearch(){
+
+ showToast("📷 Camera product finder coming soon");
+
+}
+
+
+/* ================= AI ================= */
+
 function toggleAI(){
-  const box=document.getElementById("aiBox");
-  box.style.display =
-    box.style.display==="block" ? "none" : "block";
+
+ const box=document.getElementById("aiBox");
+
+ box.style.display=
+  box.style.display==="block"
+  ?"none"
+  :"block";
+
 }
 
-function addAI(text,type="bot"){
-  const area=document.getElementById("aiMessages");
 
-  const msg=document.createElement("div");
-  msg.className="aiMsg "+type;
-  msg.innerHTML=text;
+function addMessage(text,type){
 
-  area.appendChild(msg);
-  area.scrollTop=area.scrollHeight;
+ const area=document.getElementById("messages");
+
+ const div=document.createElement("div");
+
+ div.className="msg "+type;
+
+ div.innerHTML=text;
+
+ area.appendChild(div);
+
+ area.scrollTop=area.scrollHeight;
+
 }
+
 
 function quickAI(text){
-  document.getElementById("aiInput").value=text;
-  sendAI();
+
+ document.getElementById("aiInput").value=text;
+
+ sendAI();
+
 }
+
 
 function sendAI(){
 
-  const input=document.getElementById("aiInput");
-  const text=input.value.trim();
+ const input=document.getElementById("aiInput");
 
-  if(!text) return;
+ const text=input.value.trim();
 
-  addAI(text,"user");
-  input.value="";
+ if(!text)return;
 
-  // Fast AI-style response
-  setTimeout(()=>{
-    const q=text.toLowerCase();
+ addMessage(text,"user");
 
-    let reply="";
+ input.value="";
 
-    if(q.includes("product") || q.includes("show")){
-      reply=
-      "🛍️ Sure! Check the <b>Our Products</b> section above. You can select a product to see its photo, price and details.";
-    }
+ setTimeout(()=>{
 
-    else if(q.includes("offer") || q.includes("discount")){
-      reply=
-      "🏷️ Current offer: <b>DIY Painting Kit</b><br>MRP ₹180 → <b>₹135</b> with 25% OFF.";
-    }
+  const q=text.toLowerCase();
 
-    else if(q.includes("buy") || q.includes("order")){
-      reply=
-      "⚡ Select your product and tap <b>Buy Now</b>. You can also add it to your cart first.";
-    }
+  let reply="";
 
-    else if(q.includes("cart")){
-      reply=
-      "🛒 Add your favourite products to the cart and review them before buying.";
-    }
+  if(q.includes("product")){
 
-    else if(q.includes("customer") || q.includes("help") || q.includes("contact")){
-      reply=
-      "📞 Customer Care / WhatsApp:<br><b>9150608692</b><br><br>You can contact us for product or order help.";
-    }
+   reply=products.length
+    ? "🛍️ We currently have <b>"+
+      products.length+
+      "</b> product(s). Scroll up to see them."
+    : "🛍️ Products will appear here when they are added.";
 
-    else if(q.includes("painting")){
-      reply=
-      "🎨 The DIY Painting Kit includes plaster figures, 6 assorted paint colours and a paint brush.";
-    }
+  }else if(q.includes("price")){
 
-    else if(q.includes("price")){
-      reply=
-      "💰 The DIY Painting Kit is currently <b>₹135</b> after 25% OFF.";
-    }
+   if(products.length && products[0].price){
+    reply="💰 The current product price is <b>₹"+
+     products[0].price+"</b>.";
+   }else{
+    reply="💰 Please check the product card for the current price.";
+   }
 
-    else{
-      reply=
-      "🤖 I can quickly help with <b>products, prices, offers, cart, buying and customer care</b>. Try one of the quick options below.";
-    }
+  }else if(q.includes("offer") || q.includes("discount")){
 
-    addAI(reply,"bot");
+   const p=products.find(x=>x.discount);
 
-  },350);
-}
+   reply=p
+    ?"🏷️ Current offer: <b>"+
+      p.discount+"% OFF</b> on "+
+      safe(p.name)+"."
+    :"🏷️ Please check the product cards for current offers.";
 
-function startVoice(){
+  }else if(q.includes("buy") || q.includes("order")){
 
-  const SpeechRecognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
+   reply=
+    "⚡ Choose a product and tap <b>Buy Now</b> to place an order.";
 
-  if(!SpeechRecognition){
-    addAI("🎤 Voice input is not supported in this browser.","bot");
-    return;
+  }else if(q.includes("cart")){
+
+   reply=
+    "🛒 Tap <b>Add to Cart</b> on any product to save it.";
+
+  }else if(q.includes("customer") ||
+           q.includes("help") ||
+           q.includes("contact")){
+
+   reply=
+    "📞 Customer Care: <b>9150608692</b>";
+
+  }else{
+
+   reply=
+    "🤖 I can help with <b>Products, Price, Offers, Cart, Buy Now</b> and Customer Care.";
+
   }
 
-  const recognition=new SpeechRecognition();
+  addMessage(reply,"bot");
 
-  recognition.lang="en-IN";
-  recognition.interimResults=false;
+ },250);
 
-  recognition.onresult=function(event){
-    document.getElementById("aiInput").value=
-      event.results[0][0].transcript;
-
-    sendAI();
-  };
-
-  recognition.start();
 }
+
+
+function voiceAI(){
+
+ const SpeechRecognition=
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+ if(!SpeechRecognition){
+
+  showToast("🎤 Voice is not supported");
+  return;
+
+ }
+
+ const r=new SpeechRecognition();
+
+ r.lang="en-IN";
+
+ r.onresult=function(e){
+
+  document.getElementById("aiInput").value=
+   e.results[0][0].transcript;
+
+  sendAI();
+
+ };
+
+ r.start();
+
+}
+
+
+/* ================= TOAST ================= */
+
+function showToast(text){
+
+ const toast=document.getElementById("toast");
+
+ toast.innerText=text;
+
+ toast.style.display="block";
+
+ setTimeout(()=>{
+  toast.style.display="none";
+ },2200);
+
+}
+
+
+/* ================= SAFETY ================= */
+
+function safe(value){
+
+ return String(value ?? "")
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
+
+}
+
+
+/* ================= START ================= */
+
+updateCartCount();
+loadProducts();
+
 </script>
 
-<!-- ================= END AI ASSISTANT ================= -->
+</body>
+</html>
