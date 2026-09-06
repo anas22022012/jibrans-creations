@@ -1,39 +1,501 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jibran's Creations ADMIN</title><link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jibran's Creations — Admin</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#fff0f7,#eef5ff);
+  color:#18264d;
+}
+header{
+  background:white;
+  padding:16px;
+  box-shadow:0 3px 15px #0001;
+  text-align:center;
+}
+header h1{margin:0}
+.container{
+  max-width:850px;
+  margin:25px auto;
+  padding:15px;
+}
+.card{
+  background:white;
+  padding:22px;
+  border-radius:22px;
+  box-shadow:0 6px 25px #0002;
+  margin-bottom:20px;
+}
+label{
+  display:block;
+  font-weight:bold;
+  margin-top:14px;
+  margin-bottom:6px;
+}
+input,textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:15px;
+  outline:none;
+}
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+input:focus,textarea:focus{
+  border-color:#a878df;
+}
+.upload{
+  border:2px dashed #d5b2ec;
+  padding:20px;
+  text-align:center;
+  border-radius:16px;
+  cursor:pointer;
+  background:#faf5ff;
+}
+.upload input{
+  border:0;
+  padding:0;
+  background:none;
+}
+.preview{
+  display:none;
+  width:100%;
+  max-height:330px;
+  object-fit:contain;
+  border-radius:16px;
+  margin-top:15px;
+  background:#f5f5f5;
+}
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+button{
+  border:0;
+  padding:13px 18px;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.save{
+  width:100%;
+  margin-top:20px;
+  background:#7c62d9;
+  color:white;
+  font-size:16px;
+}
+.clear{
+  background:#eee;
+  margin-top:10px;
+}
+.product{
+  border:1px solid #eee;
+  border-radius:17px;
+  padding:12px;
+  margin-top:12px;
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+.product img{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:12px;
+}
+.product-info{
+  flex:1;
+}
+.delete{
+  background:#ffe1e1;
+  color:#b40000;
+}
+.edit{
+  background:#eee5ff;
+  color:#6842a5;
+}
+.empty{
+  color:#777;
+  text-align:center;
+}
+@media(max-width:600px){
+  .row{grid-template-columns:1fr}
+  .product{
+    align-items:flex-start;
+  }
+}
+</style>
 </head>
+
 <body>
-<div id="login" class="login"><div class="card"><h2>🎨 Admin Login</h2>
-<input id="email" type="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
-<button class="btn" onclick="login()">Login</button><p id="err"></p></div></div>
 
-<div id="panel" hidden>
-<header><h1>🎨 Jibran's Creations ADMIN</h1><span>● Admin mode</span></header>
-<nav><a href="#dashboard">📊 Dashboard</a><a href="#products">🛍️ Products</a><a href="#orders">📦 Orders</a><a href="#offers">🏷️ Offers & Coupons</a><a href="#settings">⚙️ Store Settings</a></nav>
-<main>
-<section id="dashboard" class="card"><h2>Dashboard</h2><p>Manage your store from one place.</p><div class="stats"><b>Products <span id="count">0</span></b><b>In Stock <span id="stock">0</span></b><b>Cart Items 0</b><b>Offers 1</b></div></section>
+<header>
+  <h1>🎨 Jibran's Creations</h1>
+  <p>Admin Product Manager</p>
+</header>
 
-<section id="products" class="card"><h2>Products</h2><p>Add, edit and manage your products.</p>
-<form id="productForm">
-<label>Product Photos 📸</label><input id="photo" type="file" accept="image/*">
-<input id="name" required placeholder="Product Name *">
-<select id="category" required><option value="">Choose category</option><option>Painting</option><option>Kids</option><option>Shapes</option><option>Animals</option><option>DIY Kits</option><option>Building Toys</option><option>Alphabet</option></select>
-<textarea id="description" placeholder="Description"></textarea><input id="pieces" placeholder="Pieces / Quantity">
-<input id="stockInput" required type="number" placeholder="Stock *"><input id="mrp" required type="number" placeholder="Original / MRP Price (₹) *">
-<input id="sale" required type="number" placeholder="Sale Price (₹) *"><input id="discount" type="number" placeholder="Discount (%)">
-<input id="delivery" type="number" placeholder="Delivery Charge (₹)"><input id="sku" placeholder="SKU / Product Code">
-<label><input id="featured" type="checkbox"> Show as Featured Product</label>
-<label><input id="limited" type="checkbox"> Limited Offer / Flash Sale</label>
-<div><button type="reset">Clear</button> <button class="btn" type="submit">💾 Publish Product</button></div>
-</form>
-<h3>Product List</h3><div id="list"></div></section>
+<div class="container">
 
-<section id="orders" class="card"><h2>Orders</h2><p>📦 No orders yet</p><small>Once checkout and database are connected, customer orders will appear here.</small></section>
-<section id="offers" class="card"><h2>Offers & Coupons</h2><p>Manage discounts and promotional campaigns.</p><input placeholder="Coupon Code"><input placeholder="Discount"><button class="btn">Save Coupon</button></section>
-<section id="settings" class="card"><h2>Store Settings</h2><p>Phone: 9150608692</p><p>WhatsApp: 9150608692</p><p>Email: jibran.shahban@gmail.com</p><p>Shipping: All over India</p><p>Returns: 7-day return/replacement</p><p>COD: Disabled</p><p>AI Assistant: Chat + Voice</p></section>
-</main></div>
-<script src="admin.js"></script>
-</body></html>
+<div class="card">
+
+<h2>➕ Add / Update Product</h2>
+
+<label>Product Name</label>
+<input id="name" placeholder="Example: DIY Painting Kit">
+
+<label>Product Photo</label>
+
+<div class="upload">
+  <input
+    id="photo"
+    type="file"
+    accept="image/*"
+    onchange="previewPhoto(event)"
+  >
+  <p>📷 Select Product Photo</p>
+</div>
+
+<img id="preview" class="preview">
+
+<label>Description</label>
+<textarea
+  id="description"
+  placeholder="Write product description..."
+></textarea>
+
+<div class="row">
+
+<div>
+<label>MRP ₹</label>
+<input id="mrp" type="number" placeholder="180">
+</div>
+
+<div>
+<label>Discount %</label>
+<input id="discount" type="number" placeholder="25">
+</div>
+
+</div>
+
+<div class="row">
+
+<div>
+<label>Sale Price ₹</label>
+<input id="price" type="number" placeholder="135">
+</div>
+
+<div>
+<label>Delivery ₹</label>
+<input id="delivery" type="number" placeholder="100">
+</div>
+
+</div>
+
+<button class="save" onclick="saveProduct()">
+💾 Save / Update Product
+</button>
+
+<button class="clear" onclick="clearForm()">
+Clear
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>🛍️ Product List</h2>
+
+<div id="products"></div>
+
+</div>
+
+</div>
+
+<script>
+
+let products =
+JSON.parse(localStorage.getItem("jibranProducts") || "[]");
+
+let selectedImage = "";
+let editingIndex = -1;
+
+
+/* PHOTO PREVIEW */
+
+function previewPhoto(event){
+
+const file = event.target.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+selectedImage = e.target.result;
+
+const preview =
+document.getElementById("preview");
+
+preview.src = selectedImage;
+preview.style.display = "block";
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* SAVE PRODUCT */
+
+function saveProduct(){
+
+const name =
+document.getElementById("name").value.trim();
+
+const description =
+document.getElementById("description").value.trim();
+
+const mrp =
+Number(document.getElementById("mrp").value);
+
+const discount =
+Number(document.getElementById("discount").value);
+
+const price =
+Number(document.getElementById("price").value);
+
+const delivery =
+Number(document.getElementById("delivery").value);
+
+
+if(!name){
+alert("Product name डालो.");
+return;
+}
+
+if(!selectedImage && editingIndex === -1){
+alert("Product photo select करो.");
+return;
+}
+
+const product = {
+
+name:name,
+
+image:selectedImage ||
+products[editingIndex].image,
+
+description:description,
+
+mrp:mrp,
+
+discount:discount,
+
+price:price,
+
+delivery:delivery,
+
+updatedAt:new Date().toISOString()
+
+};
+
+
+if(editingIndex === -1){
+
+products.push(product);
+
+alert("✅ Product saved!");
+
+}else{
+
+products[editingIndex] = product;
+
+alert("✅ Product updated!");
+
+}
+
+
+localStorage.setItem(
+"jibranProducts",
+JSON.stringify(products)
+);
+
+clearForm();
+
+showProducts();
+
+}
+
+
+/* SHOW PRODUCTS */
+
+function showProducts(){
+
+const box =
+document.getElementById("products");
+
+if(products.length === 0){
+
+box.innerHTML =
+'<p class="empty">No products added yet.</p>';
+
+return;
+
+}
+
+box.innerHTML = products.map((p,i)=>`
+
+<div class="product">
+
+<img src="${p.image}" alt="${escapeHTML(p.name)}">
+
+<div class="product-info">
+
+<b>${escapeHTML(p.name)}</b>
+
+<p>
+MRP: ₹${p.mrp || 0}<br>
+<strong>Sale: ₹${p.price || 0}</strong>
+</p>
+
+</div>
+
+<button class="edit"
+onclick="editProduct(${i})">
+✏️
+</button>
+
+<button class="delete"
+onclick="deleteProduct(${i})">
+🗑️
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* EDIT */
+
+function editProduct(i){
+
+const p = products[i];
+
+editingIndex = i;
+
+document.getElementById("name").value = p.name;
+
+document.getElementById("description").value =
+p.description;
+
+document.getElementById("mrp").value =
+p.mrp;
+
+document.getElementById("discount").value =
+p.discount;
+
+document.getElementById("price").value =
+p.price;
+
+document.getElementById("delivery").value =
+p.delivery;
+
+selectedImage = p.image;
+
+document.getElementById("preview").src =
+p.image;
+
+document.getElementById("preview").style.display =
+"block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* DELETE */
+
+function deleteProduct(i){
+
+if(!confirm("Delete this product?")) return;
+
+products.splice(i,1);
+
+localStorage.setItem(
+"jibranProducts",
+JSON.stringify(products)
+);
+
+showProducts();
+
+}
+
+
+/* CLEAR */
+
+function clearForm(){
+
+editingIndex = -1;
+
+selectedImage = "";
+
+document.getElementById("name").value = "";
+
+document.getElementById("description").value = "";
+
+document.getElementById("mrp").value = "";
+
+document.getElementById("discount").value = "";
+
+document.getElementById("price").value = "";
+
+document.getElementById("delivery").value = "";
+
+document.getElementById("photo").value = "";
+
+document.getElementById("preview").src = "";
+
+document.getElementById("preview").style.display = "none";
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text){
+
+return String(text)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+/* LOAD */
+
+showProducts();
+
+</script>
+
+</body>
+</html>
