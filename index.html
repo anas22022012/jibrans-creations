@@ -36,6 +36,24 @@ header{
  background:#e91e63;color:white;border-radius:10px;
  padding:2px 5px;font-size:10px;
 }
+ .heart{
+ width:52px;
+ height:52px;
+ background:#fff!important;
+ border:1px solid #ddd!important;
+ border-radius:13px;
+ font-size:30px;
+ color:#222;
+ cursor:pointer;
+ transition:.2s;
+}
+
+.heart.liked{
+ color:#e91e63!important;
+ background:#fff1f6!important;
+ border-color:#f1b1c9!important;
+ transform:scale(1.08);
+}
 .search{
  max-width:800px;margin:18px auto;padding:0 15px;
 }
@@ -476,38 +494,45 @@ function isLiked(product){
 
 function toggleWishlist(index){
 
- const product=products[index];
+  const product = products[index];
 
- let list=JSON.parse(
-  localStorage.getItem("jibranWishlist") || "[]"
- );
+  if(!product) return;
 
- const found=list.findIndex(
-  p=>p.name===product.name
- );
+  let list = [];
 
- if(found===-1){
+  try{
+    list = JSON.parse(
+      localStorage.getItem("jibranWishlist") || "[]"
+    );
+  }catch(e){
+    list = [];
+  }
 
-  list.push(product);
+  const found = list.findIndex(
+    p => p.name === product.name
+  );
 
-  showToast("❤️ Added to Wishlist!");
+  if(found === -1){
 
- }else{
+    list.push(product);
 
-  list.splice(found,1);
+    showToast("❤️ Added to Wishlist!");
 
-  showToast("♡ Removed from Wishlist");
+  }else{
 
- }
+    list.splice(found,1);
 
- localStorage.setItem(
-  "jibranWishlist",
-  JSON.stringify(list)
- );
+    showToast("♡ Removed from Wishlist");
 
- renderProducts();
+  }
 
-}
+  localStorage.setItem(
+    "jibranWishlist",
+    JSON.stringify(list)
+  );
+
+  renderProducts();
+     }
 
 
 function openWishlist(){
