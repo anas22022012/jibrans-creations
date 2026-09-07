@@ -319,22 +319,47 @@ let products=[];
 
 function loadProducts(){
 
- /*
-  Admin product data:
-  jibranProducts
- */
+  try{
 
- try{
-  products=JSON.parse(
-   localStorage.getItem("jibranProducts") || "[]"
-  );
- }catch(e){
-  products=[];
- }
+    const saved =
+      localStorage.getItem("products");
 
- renderProducts();
+    products = saved
+      ? JSON.parse(saved)
+      : [];
+
+    products = products.map(function(p){
+
+      return {
+        ...p,
+
+        name: p.name || "",
+        description: p.description || "",
+
+        price: p.sale ?? p.price ?? "",
+
+        mrp: p.mrp ?? "",
+        discount: p.discount ?? "",
+        delivery: p.delivery ?? "",
+
+        image: p.image || ""
+      };
+
+    });
+
+  }catch(error){
+
+    console.error(
+      "Product loading error:",
+      error
+    );
+
+    products=[];
+
+  }
+
+  renderProducts();
 }
-
 
 /* ================= PRODUCTS ================= */
 
