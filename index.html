@@ -7,187 +7,369 @@
 
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
- margin:0;font-family:Arial,sans-serif;
- background:linear-gradient(135deg,#fff3f8,#f5f1ff,#eefaff);
- color:#20284d;min-height:100vh;
+margin:0;font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#fff3f8,#f5f1ff,#eefaff);
+color:#20284d;
 }
-button,a{font-family:inherit}
+button,input,textarea{font:inherit}
 button{cursor:pointer}
+
 header{
- position:sticky;top:0;z-index:1000;background:#ffffffed;
- backdrop-filter:blur(12px);padding:10px 15px;
- display:flex;align-items:center;justify-content:space-between;
- box-shadow:0 3px 18px #0001;
+position:sticky;top:0;z-index:1000;
+background:#ffffffee;
+backdrop-filter:blur(12px);
+padding:10px 15px;
+display:flex;align-items:center;justify-content:space-between;
+box-shadow:0 3px 18px #0001;
 }
 .brand{display:flex;align-items:center;gap:10px}
-.brand img{width:52px;height:52px;border-radius:50%;object-fit:contain;background:#fff}
-.brand b{font-size:17px}.brand small{color:#777}
+.brand img{
+width:52px;height:52px;border-radius:50%;object-fit:contain;
+}
+.brand b{font-size:17px}
+.brand small{color:#777}
+
 .headBtns{display:flex;gap:7px}
 .headBtns button{
- width:42px;height:42px;border:0;border-radius:13px;
- background:#f4e8ff;font-size:19px;cursor:pointer;position:relative;
- transition:.2s;
+width:42px;height:42px;border:0;border-radius:13px;
+background:#f4e8ff;font-size:19px;
+position:relative;
 }
-.headBtns button:hover{transform:translateY(-2px)}
-#cartCount{
- background:#e91e63;color:white;border-radius:10px;
- padding:2px 5px;font-size:10px;position:absolute;right:-3px;top:-3px;
+.badge{
+position:absolute;right:-3px;top:-5px;
+background:#e91e63;color:white;
+border-radius:10px;padding:2px 6px;font-size:10px;
 }
-.search{max-width:800px;margin:18px auto;padding:0 15px}
-.searchBox{
- background:white;border-radius:30px;padding:7px;display:flex;
- align-items:center;gap:5px;box-shadow:0 4px 18px #0001;
-}
-.searchBox input{flex:1;border:0;outline:0;padding:12px;font-size:15px;min-width:0}
-.searchBox button{
- width:40px;height:40px;border:0;border-radius:50%;
- background:#f0e6ff;cursor:pointer;transition:.2s;
-}
-.searchBox button:hover{transform:scale(1.08)}
-.hero{
- max-width:900px;margin:15px auto;padding:35px 20px;text-align:center;
- border-radius:28px;background:linear-gradient(135deg,#ffe2f0,#fff3b0,#def5ff);
- animation:heroIn .7s ease both;
-}
-.hero img{width:100px;height:100px;border-radius:50%;object-fit:contain;background:white}
-.hero h1{margin:12px 0 5px}.hero p{color:#666}
-.container{max-width:900px;margin:auto;padding:5px 15px 60px}
-.sectionTitle{margin:25px 3px 15px}
-.product{
- background:white;border-radius:24px;overflow:hidden;
- box-shadow:0 7px 28px #0002;margin-bottom:22px;
- animation:cardIn .55s ease both;transition:transform .25s,box-shadow .25s;
-}
-.product:hover{transform:translateY(-4px);box-shadow:0 12px 32px #0002}
-.productImg{width:100%;height:350px;object-fit:cover;display:block}
-.productInfo{padding:20px}.productName{font-size:22px;margin-bottom:9px}
-.desc{color:#555;line-height:1.55}
-.priceRow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:15px}
-.old{text-decoration:line-through;color:#888}
-.price{font-size:27px;font-weight:bold;color:#e91e63}
-.off{background:#def7e7;color:#168348;padding:5px 8px;border-radius:8px;font-size:12px;font-weight:bold}
-.delivery{color:#666;margin-top:8px}
-.actions{display:flex;gap:8px;margin-top:18px}
-.actions button{border:0;border-radius:13px;padding:13px 10px;font-weight:bold;transition:.2s}
-.actions button:hover{transform:translateY(-2px)}
-.cartBtn{flex:1;background:#ffe18d}.buyBtn{flex:1;background:#e68bc1;color:white}
-.heart{
- width:52px;height:52px;background:#fff!important;border:1px solid #ddd!important;
- border-radius:13px;font-size:30px;color:#222;cursor:pointer;transition:.2s;
-}
-.heart:hover{transform:scale(1.08)}
-.heart.liked{
- color:#e91e63!important;background:#fff1f6!important;
- border-color:#f1b1c9!important;transform:scale(1.08);
-}
-.empty{background:white;border-radius:22px;padding:40px 20px;text-align:center;box-shadow:0 4px 18px #0001}
-.features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:25px 0}
-.feature{background:white;padding:18px;text-align:center;border-radius:17px;box-shadow:0 3px 13px #0001;transition:.2s}
-.feature:hover{transform:translateY(-3px)}
-.contact{background:white;border-radius:22px;padding:22px;text-align:center;box-shadow:0 4px 18px #0001}
-.contact a{display:block;text-decoration:none;padding:13px;margin-top:10px;border-radius:12px;font-weight:bold}
-.call{background:#e9efff;color:#3157a5}.whatsapp{background:#ddf8e5;color:#13823a}
 
-/* AI */
-#aiBtn{
- position:fixed;right:18px;bottom:20px;width:60px;height:60px;border:0;border-radius:50%;
- background:linear-gradient(135deg,#ff8fc7,#8d82ff);color:white;font-size:26px;
- box-shadow:0 8px 25px #0003;z-index:3000;cursor:pointer;animation:pulse 2s infinite;
+.search{
+max-width:800px;margin:18px auto;padding:0 15px;
 }
-#aiBox{
- display:none;position:fixed;right:18px;bottom:90px;width:350px;
- max-width:calc(100vw - 36px);height:520px;background:white;border-radius:24px;
- overflow:hidden;box-shadow:0 15px 50px #0004;z-index:3001;
- animation:pop .22s ease both;
+.searchBox{
+background:white;border-radius:30px;padding:7px;
+display:flex;align-items:center;gap:5px;
+box-shadow:0 4px 18px #0001;
 }
-.aiHead{padding:16px;color:white;background:linear-gradient(135deg,#ff8fc7,#8d82ff);display:flex;justify-content:space-between;align-items:center}
-.aiLeft{display:flex;gap:10px;align-items:center}.aiAvatar{width:42px;height:42px;border-radius:50%;background:#ffffff33;display:flex;align-items:center;justify-content:center;font-size:22px}
-.aiClose{border:0;background:none;color:white;font-size:25px}
-#messages{height:325px;overflow-y:auto;padding:14px;background:#fafafa}
-.msg{max-width:82%;padding:11px 13px;margin:8px 0;border-radius:15px;font-size:14px;line-height:1.4}
-.bot{background:white;border:1px solid #eee}.user{margin-left:auto;background:#e9ddff}
-.quick{display:flex;gap:6px;overflow-x:auto;padding:9px;border-top:1px solid #eee}
-.quick button{white-space:nowrap;border:1px solid #dfc8ff;background:white;border-radius:20px;padding:8px 10px;cursor:pointer;font-size:12px}
-.aiInput{display:flex;gap:6px;padding:9px;border-top:1px solid #eee}
-.aiInput input{flex:1;border:1px solid #ddd;border-radius:22px;outline:0;padding:11px}
-.aiInput button{width:40px;height:40px;border:0;border-radius:50%;cursor:pointer}
-.send{background:#8d82ff;color:white}
-#toast{display:none;position:fixed;bottom:25px;left:50%;transform:translateX(-50%);z-index:5000;background:#20284d;color:white;padding:12px 20px;border-radius:25px}
+.searchBox input{
+flex:1;border:0;outline:0;padding:12px;font-size:15px;
+}
+.searchBox button{
+width:40px;height:40px;border:0;border-radius:50%;
+background:#f0e6ff;
+}
+
+.history{
+max-width:800px;margin:-10px auto 15px;
+padding:0 15px;
+display:none;
+}
+.history span{
+display:inline-block;
+background:white;
+padding:7px 11px;
+border-radius:15px;
+margin:3px;
+font-size:12px;
+cursor:pointer;
+}
+
+.hero{
+max-width:900px;margin:15px auto;padding:35px 20px;
+text-align:center;border-radius:28px;
+background:linear-gradient(135deg,#ffe2f0,#fff3b0,#def5ff);
+}
+.hero img{
+width:100px;height:100px;border-radius:50%;
+object-fit:contain;background:white;
+}
+.hero h1{margin:12px 0 5px}
+.hero p{color:#666}
+
+.container{
+max-width:900px;margin:auto;
+padding:5px 15px 60px;
+}
+.sectionTitle{margin:25px 3px 15px}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:18px;
+}
+
+.product{
+background:white;border-radius:24px;
+overflow:hidden;
+box-shadow:0 7px 28px #0002;
+animation:cardIn .4s ease;
+transition:.25s;
+}
+.product:hover{
+transform:translateY(-4px);
+box-shadow:0 12px 32px #0002;
+}
+.productImg{
+width:100%;height:270px;
+object-fit:cover;display:block;
+background:#f5f5f5;
+}
+.noImage{
+height:270px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:65px;
+background:#f5f5f5;
+}
+
+.productInfo{padding:18px}
+.productName{font-size:21px;margin:0 0 8px}
+.desc{color:#555;line-height:1.5}
+
+.priceRow{
+display:flex;align-items:center;
+gap:8px;flex-wrap:wrap;margin-top:14px;
+}
+.old{text-decoration:line-through;color:#888}
+.price{
+font-size:25px;font-weight:bold;color:#e91e63;
+}
+.off{
+background:#def7e7;color:#168348;
+padding:5px 8px;border-radius:8px;
+font-size:12px;font-weight:bold;
+}
+.delivery{color:#666;font-size:14px}
+
+.actions{
+display:flex;gap:8px;margin-top:16px;
+}
+.actions button{
+border:0;border-radius:13px;
+padding:12px 9px;font-weight:bold;
+}
+.cartBtn{flex:1;background:#ffe18d}
+.buyBtn{flex:1;background:#e68bc1;color:white}
+
+.heart{
+width:52px;background:white;
+border:1px solid #ddd!important;
+font-size:29px;color:#777;
+}
+.heart.liked{
+color:#e91e63;
+background:#fff1f6;
+border-color:#f1b1c9!important;
+animation:heartPop .25s;
+}
+
+.empty{
+background:white;border-radius:22px;
+padding:40px 20px;text-align:center;
+box-shadow:0 4px 18px #0001;
+grid-column:1/-1;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;margin:25px 0;
+}
+.feature{
+background:white;padding:18px;
+text-align:center;border-radius:17px;
+box-shadow:0 3px 13px #0001;
+}
+
+.contact{
+background:white;border-radius:22px;
+padding:22px;text-align:center;
+box-shadow:0 4px 18px #0001;
+}
+.contact a{
+display:block;text-decoration:none;
+padding:13px;margin-top:10px;
+border-radius:12px;font-weight:bold;
+}
+.call{background:#e9efff;color:#3157a5}
+.whatsapp{background:#ddf8e5;color:#13823a}
+
 footer{text-align:center;color:#777;padding:25px}
 
-/* Wishlist / Cart window */
 .modal{
- display:none;position:fixed;inset:0;background:#0007;z-index:4500;
- padding:20px;align-items:center;justify-content:center;
+display:none;
+position:fixed;inset:0;
+background:#0008;
+z-index:5000;
+align-items:center;
+justify-content:center;
+padding:15px;
 }
-.modal.show{display:flex;animation:fade .2s ease both}
+.modal.show{
+display:flex;
+animation:fade .2s;
+}
 .modalCard{
- width:100%;max-width:700px;max-height:85vh;overflow:auto;background:white;
- border-radius:25px;box-shadow:0 20px 70px #0005;animation:pop .25s ease both;
+width:100%;max-width:650px;
+max-height:88vh;overflow:auto;
+background:white;border-radius:25px;
+padding:20px;
+box-shadow:0 20px 70px #0005;
+animation:pop .25s;
 }
-.modalHead{position:sticky;top:0;background:white;z-index:2;padding:18px 20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-.modalHead h2{margin:0}.closeModal{border:0;background:#f3f3f3;width:38px;height:38px;border-radius:50%;font-size:22px}
-.modalBody{padding:18px}
-.wishItem,.cartItem{
- display:flex;gap:12px;align-items:center;background:#fafafa;border-radius:16px;
- padding:10px;margin-bottom:10px;
+.modalHead{
+display:flex;justify-content:space-between;
+align-items:center;
 }
-.wishItem img,.cartItem img{width:75px;height:75px;border-radius:12px;object-fit:cover;background:white}
-.itemText{flex:1}.itemText b{display:block;margin-bottom:5px}
-.itemText small{color:#777}.removeItem{border:0;background:#ffe5ee;color:#e91e63;border-radius:10px;padding:9px}
-.modalActions{display:flex;gap:8px;margin-top:15px}.modalActions button{flex:1;border:0;border-radius:12px;padding:12px;font-weight:bold}
-.checkout{background:#e68bc1;color:white}.clearBtn{background:#eee}
+.close{
+border:0;background:#eee;
+width:38px;height:38px;
+border-radius:50%;font-size:22px;
+}
 
-/* small animations */
-@keyframes cardIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
-@keyframes heroIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
-@keyframes pop{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:none}}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-@keyframes pulse{0%,100%{box-shadow:0 8px 25px #0003}50%{box-shadow:0 8px 32px #8d82ff66}}
+.item{
+display:flex;gap:12px;
+align-items:center;
+background:#fafafa;
+border-radius:16px;
+padding:10px;margin-bottom:10px;
+}
+.item img{
+width:70px;height:70px;
+border-radius:12px;
+object-fit:cover;
+}
+.itemText{flex:1}
+.itemText b{display:block;margin-bottom:5px}
+.remove{
+border:0;background:#ffe5ee;
+color:#e91e63;
+border-radius:10px;
+padding:9px;
+}
 
-/* ===== SEARCH HISTORY + ANIMATIONS ===== */
-.searchWrap{max-width:900px;margin:18px auto;padding:0 15px;position:relative}
-.searchHistory{
- background:#fff;border-radius:18px;margin-top:8px;padding:12px;
- box-shadow:0 8px 28px #0002;display:none;animation:dropIn .22s ease;
+.qty{
+display:flex;align-items:center;
+gap:5px;
 }
-.searchHistory.show{display:block}
-.historyTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.historyTop b{font-size:14px}.clearHistory{border:0;background:none;color:#e91e63;font-size:12px;cursor:pointer}
-.historyList{display:flex;gap:7px;flex-wrap:wrap}
-.historyChip{
- border:1px solid #eadcf8;background:#faf7ff;border-radius:20px;
- padding:8px 11px;font-size:12px;cursor:pointer;
+.qty button{
+width:30px;height:30px;
+border:0;border-radius:8px;
+background:#eee;
 }
-.historyChip:active{transform:scale(.96)}
-.resultInfo{
- display:none;margin-top:8px;background:#fff;border-radius:14px;padding:10px 13px;
- box-shadow:0 4px 15px #0001;font-size:13px;
+
+.total{
+font-size:21px;
+font-weight:bold;
+margin:18px 0;
 }
-.resultInfo.show{display:block;animation:fadeUp .25s ease}
-.product{animation:cardIn .45s ease both}
-.product:hover{transform:translateY(-4px);box-shadow:0 12px 32px #0002}
-.productImg{transition:transform .45s ease}
-.product:hover .productImg{transform:scale(1.025)}
-.actions button{transition:transform .16s ease,box-shadow .16s ease}
-.actions button:active{transform:scale(.95)}
-.heart{transition:transform .2s ease,color .2s ease,background .2s ease!important}
-.heart.liked{animation:heartPop .28s ease}
-.feature,.contact,.hero{animation:fadeUp .55s ease both}
-#aiBtn{animation:aiPulse 2.4s infinite}
-@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes dropIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
-@keyframes heartPop{50%{transform:scale(1.25)}100%{transform:scale(1.08)}}
-@keyframes aiPulse{0%,100%{box-shadow:0 8px 25px #0003}50%{box-shadow:0 8px 32px #8d82ff66}}
+
+.primary{
+width:100%;
+border:0;border-radius:12px;
+padding:13px;
+font-weight:bold;
+background:#8d82ff;color:white;
+}
+
+.adminForm{
+display:grid;
+gap:10px;
+}
+.adminForm input,
+.adminForm textarea{
+width:100%;
+border:1px solid #ddd;
+border-radius:12px;
+padding:12px;
+outline:0;
+}
+.adminForm textarea{
+min-height:80px;
+resize:vertical;
+}
+
+.adminRow{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:12px 0;
+border-bottom:1px solid #eee;
+}
+.danger{
+border:0;
+background:#ffe1e1;
+color:#b22;
+padding:9px;
+border-radius:9px;
+}
+
+.aiBtn{
+position:fixed;
+right:18px;bottom:20px;
+width:60px;height:60px;
+border:0;border-radius:50%;
+background:linear-gradient(135deg,#ff8fc7,#8d82ff);
+color:white;font-size:26px;
+box-shadow:0 8px 25px #0003;
+z-index:3000;
+animation:pulse 2s infinite;
+}
+
+.aiMsg{
+background:#f5f2fa;
+border-radius:14px;
+padding:11px;
+margin:8px 0;
+}
+.aiUser{
+background:#e9ddff;
+text-align:right;
+}
+
+.quick{
+display:flex;
+gap:7px;
+overflow:auto;
+margin:10px 0;
+}
+.quick button{
+white-space:nowrap;
+border:1px solid #dfc8ff;
+background:white;
+border-radius:20px;
+padding:8px 11px;
+}
+
+@keyframes pulse{
+50%{box-shadow:0 8px 35px #8d82ff88}
+}
+@keyframes fade{
+from{opacity:0}to{opacity:1}
+}
+@keyframes pop{
+from{opacity:0;transform:scale(.95)}
+to{opacity:1;transform:scale(1)}
+}
+@keyframes cardIn{
+from{opacity:0;transform:translateY(15px)}
+to{opacity:1;transform:translateY(0)}
+}
+@keyframes heartPop{
+50%{transform:scale(1.3)}
+}
 
 @media(max-width:600px){
- .brand img{width:45px;height:45px}.brand b{font-size:14px}
- .headBtns button{width:38px;height:38px}.productImg{height:270px}
- .actions{flex-wrap:wrap}.heart{width:52px}.cartBtn,.buyBtn{min-width:40%}
- .features{grid-template-columns:1fr 1fr}.modal{padding:10px}
+.brand img{width:45px;height:45px}
+.brand b{font-size:14px}
+.headBtns button{
+width:38px;height:38px;
+}
+.productImg,.noImage{height:250px}
+.actions{flex-wrap:wrap}
+.cartBtn,.buyBtn{min-width:40%}
+.features{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -195,269 +377,1039 @@ footer{text-align:center;color:#777;padding:25px}
 <body>
 
 <header>
- <div class="brand">
-  <img id="logo" src="logo.jpg" alt="Logo">
-  <div><b>Jibran's Creations</b><br><small>Creative products</small></div>
- </div>
- <div class="headBtns">
-  <button onclick="focusSearch()">🔎</button>
-  <button onclick="openWishlist()">❤️</button>
-  <button onclick="openCart()">🛒 <span id="cartCount">0</span></button>
- </div>
-</header>
-
-<div class="searchWrap">
- <div class="search">
- <div class="searchBox">
-  <input id="searchInput" placeholder="Search products..." onkeydown="if(event.key==='Enter')searchProducts()">
-  <button onclick="voiceSearch()">🎤</button>
-  <button onclick="cameraSearch()">📷</button>
-  <button onclick="searchProducts()">🔎</button>
- </div>
- </div>
-
- <div id="searchHistory" class="searchHistory">
-  <div class="historyTop">
-   <b>🕘 Recent searches</b>
-   <button class="clearHistory" onclick="clearSearchHistory()">Clear</button>
-  </div>
-  <div id="historyList" class="historyList"></div>
- </div>
- <div id="resultInfo" class="resultInfo"></div>
+<div class="brand">
+<img src="logo.jpg" alt="Logo"
+onerror="this.style.display='none'">
+<div>
+<b>Jibran's Creations</b><br>
+<small>Creative products</small>
+</div>
 </div>
 
+<div class="headBtns">
+<button onclick="focusSearch()">🔎</button>
+<button onclick="openWishlist()">❤️</button>
+<button onclick="openCart()">
+🛒 <span id="cartCount" class="badge">0</span>
+</button>
+</div>
+</header>
+
+<div class="search">
+<div class="searchBox">
+<input
+id="searchInput"
+placeholder="Search products..."
+oninput="searchProducts()"
+onfocus="showHistory()"
+onkeydown="if(event.key==='Enter')saveSearch()"
+>
+<button onclick="voiceSearch()">🎤</button>
+<button onclick="searchProducts()">🔎</button>
+</div>
+</div>
+
+<div id="history" class="history"></div>
+
 <section class="hero">
- <img id="heroLogo" src="logo.jpg" alt="Jibran's Creations">
- <h1>Jibran's Creations</h1>
- <p>Creative products for creative minds ✨</p>
+<img src="logo.jpg" alt="Logo"
+onerror="this.style.display='none'">
+<h1>Jibran's Creations</h1>
+<p>Creative products for creative minds ✨</p>
 </section>
 
 <main class="container">
- <h2 class="sectionTitle">🤖 AI Featured</h2>
- <div id="featured"></div>
 
- <h2 class="sectionTitle">🛍️ Our Products</h2>
- <div id="products"></div>
+<h2 class="sectionTitle">🤖 AI Featured</h2>
+<div id="featured" class="grid"></div>
 
- <div class="features">
-  <div class="feature">🎨<br><b>Creative Products</b></div>
-  <div class="feature">🛒<br><b>Easy Shopping</b></div>
-  <div class="feature">❤️<br><b>Wishlist</b></div>
-  <div class="feature">📞<br><b>Customer Support</b></div>
- </div>
+<h2 class="sectionTitle">🛍️ Our Products</h2>
+<div id="products" class="grid"></div>
 
- <div class="contact">
-  <h2>📞 Customer Care</h2>
-  <p>Need help with your order?</p>
-  <a class="call" href="tel:9150608692">📞 Call 9150608692</a>
-  <a class="whatsapp" href="https://wa.me/919150608692">💬 WhatsApp</a>
- </div>
+<div class="features">
+<div class="feature">🎨<br><b>Creative Products</b></div>
+<div class="feature">🛒<br><b>Easy Shopping</b></div>
+<div class="feature">❤️<br><b>Wishlist</b></div>
+<div class="feature">📞<br><b>Customer Support</b></div>
+</div>
+
+<div class="contact">
+<h2>📞 Customer Care</h2>
+<p>Need help with your order?</p>
+
+<a class="call" href="tel:9150608692">
+📞 Call 9150608692
+</a>
+
+<a class="whatsapp"
+href="https://wa.me/919150608692"
+target="_blank">
+💬 WhatsApp
+</a>
+</div>
+
 </main>
 
-<footer>© 2026 Jibran's Creations</footer>
+<footer>
+© 2026 Jibran's Creations
+</footer>
 
-<button id="aiBtn" onclick="toggleAI()">🤖</button>
+<button class="aiBtn" onclick="openAI()">🤖</button>
 
-<div id="aiBox">
- <div class="aiHead">
-  <div class="aiLeft"><div class="aiAvatar">🤖</div><div><b>Jibran AI Assistant</b><br><small>● Fast assistance</small></div></div>
-  <button class="aiClose" onclick="toggleAI()">×</button>
- </div>
- <div id="messages">
-  <div class="msg bot">👋 Hi! I'm Jibran's AI Assistant.<br><br>I can help you find products, check prices, offers and ordering options.</div>
- </div>
- <div class="quick">
-  <button onclick="quickAI('Show products')">🛍️ Products</button>
-  <button onclick="quickAI('Price')">💰 Price</button>
-  <button onclick="quickAI('Offers')">🏷️ Offers</button>
-  <button onclick="quickAI('How to buy')">⚡ Buy</button>
- </div>
- <div class="aiInput">
-  <button onclick="voiceAI()">🎤</button>
-  <input id="aiInput" placeholder="Ask AI..." onkeydown="if(event.key==='Enter')sendAI()">
-  <button class="send" onclick="sendAI()">➤</button>
- </div>
+<!-- CART -->
+
+<div class="modal" id="cartModal">
+
+<div class="modalCard">
+
+<div class="modalHead">
+<h2>🛒 Your Cart</h2>
+<button class="close"
+onclick="closeModal('cartModal')">×</button>
 </div>
 
-<!-- Wishlist -->
-<div id="wishlistModal" class="modal" onclick="closeModalOutside(event,'wishlistModal')">
- <div class="modalCard">
-  <div class="modalHead"><h2>❤️ Wishlist</h2><button class="closeModal" onclick="closeWishlist()">×</button></div>
-  <div class="modalBody" id="wishlistBody"></div>
- </div>
+<div id="cartBody"></div>
+
+</div>
 </div>
 
-<!-- Cart -->
-<div id="cartModal" class="modal" onclick="closeModalOutside(event,'cartModal')">
- <div class="modalCard">
-  <div class="modalHead"><h2>🛒 Your Cart</h2><button class="closeModal" onclick="closeCart()">×</button></div>
-  <div class="modalBody" id="cartBody"></div>
- </div>
+<!-- WISHLIST -->
+
+<div class="modal" id="wishlistModal">
+
+<div class="modalCard">
+
+<div class="modalHead">
+<h2>❤️ Wishlist</h2>
+<button class="close"
+onclick="closeModal('wishlistModal')">×</button>
 </div>
 
-<div id="toast"></div>
+<div id="wishlistBody"></div>
+
+</div>
+</div>
+
+<!-- AI -->
+
+<div class="modal" id="aiModal">
+
+<div class="modalCard">
+
+<div class="modalHead">
+<h2>🤖 Jibran AI Assistant</h2>
+<button class="close"
+onclick="closeModal('aiModal')">×</button>
+</div>
+
+<div id="messages">
+
+<div class="aiMsg">
+👋 Hi! I'm Jibran's AI Assistant.<br><br>
+I can help you with products, prices,
+offers and ordering.
+</div>
+
+</div>
+
+<div class="quick">
+<button onclick="quickAI('products')">
+🛍️ Products
+</button>
+
+<button onclick="quickAI('price')">
+💰 Price
+</button>
+
+<button onclick="quickAI('offers')">
+🏷️ Offers
+</button>
+
+<button onclick="quickAI('buy')">
+⚡ Buy
+</button>
+</div>
+
+<div class="searchBox">
+<input
+id="aiInput"
+placeholder="Ask AI..."
+onkeydown="if(event.key==='Enter')sendAI()"
+>
+<button onclick="sendAI()">➤</button>
+</div>
+
+</div>
+</div>
+
+<!-- ADMIN -->
+
+<div class="modal" id="adminModal">
+
+<div class="modalCard">
+
+<div class="modalHead">
+<h2>⚙️ Admin Panel</h2>
+<button class="close"
+onclick="closeModal('adminModal')">×</button>
+</div>
+
+<p>Add your products here.</p>
+
+<div class="adminForm">
+
+<input id="pName"
+placeholder="Product name">
+
+<textarea id="pDescription"
+placeholder="Product description"></textarea>
+
+<input id="pPrice"
+type="number"
+placeholder="Product price">
+
+<input id="pMrp"
+type="number"
+placeholder="MRP (optional)">
+
+<input id="pDiscount"
+type="number"
+placeholder="Discount % (optional)">
+
+<input id="pDelivery"
+placeholder="Delivery info">
+
+<input id="pImage"
+placeholder="Image URL">
+
+<button class="primary"
+onclick="addProduct()">
+➕ Add Product
+</button>
+
+</div>
+
+<h3>Products</h3>
+
+<div id="adminList"></div>
+
+</div>
+</div>
 
 <script>
-let products=[];
 
-/* Keep compatibility with the existing Admin Panel.
-   Primary key = "products". Fallback = "jibranProducts". */
-function loadProducts(){
- try{
-  let saved=localStorage.getItem("products");
-  if(!saved) saved=localStorage.getItem("jibranProducts");
-  products=saved?JSON.parse(saved):[];
-  if(!Array.isArray(products)) products=[];
-  products=products.map(function(p){
-   return {
-    ...p,
-    name:p.name||"",
-    description:p.description||"",
-    price:p.sale ?? p.price ?? "",
-    mrp:p.mrp ?? "",
-    discount:p.discount ?? "",
-    delivery:p.delivery ?? "",
-    image:p.image||""
-   };
-  });
- }catch(error){
-  console.error("Product loading error:",error);
-  products=[];
- }
- renderProducts();
+/* =========================
+   DATA
+========================= */
+
+let products = getData("jibranProducts", []);
+let cart = getData("jibranCart", []);
+let wishlist = getData("jibranWishlist", []);
+let history = getData("searchHistory", []);
+
+
+/* =========================
+   STORAGE
+========================= */
+
+function getData(key, fallback){
+
+try{
+
+const data = localStorage.getItem(key);
+
+return data ? JSON.parse(data) : fallback;
+
+}catch(error){
+
+return fallback;
+
 }
+
+}
+
+function saveData(){
+
+localStorage.setItem(
+"jibranProducts",
+JSON.stringify(products)
+);
+
+localStorage.setItem(
+"jibranCart",
+JSON.stringify(cart)
+);
+
+localStorage.setItem(
+"jibranWishlist",
+JSON.stringify(wishlist)
+);
+
+localStorage.setItem(
+"searchHistory",
+JSON.stringify(history)
+);
+
+}
+
+
+/* =========================
+   SAFE TEXT
+========================= */
+
+function safe(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   MONEY
+========================= */
+
+function money(value){
+
+if(value === "" || value == null)
+return "";
+
+return "₹" +
+Number(value).toLocaleString("en-IN");
+
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+function productCard(product){
+
+const liked =
+wishlist.includes(product.id);
+
+const image =
+product.image
+?
+`<img
+class="productImg"
+src="${safe(product.image)}"
+alt="${safe(product.name)}"
+onerror="this.style.display='none'"
+>`
+:
+`<div class="noImage">🛍️</div>`;
+
+return `
+
+<article
+class="product"
+data-name="${safe(product.name).toLowerCase()}">
+
+${image}
+
+<div class="productInfo">
+
+<h2 class="productName">
+${safe(product.name)}
+</h2>
+
+<p class="desc">
+${safe(product.description)}
+</p>
+
+<div class="priceRow">
+
+${product.mrp !== ""
+?
+`<span class="old">
+${money(product.mrp)}
+</span>`
+:""}
+
+<span class="price">
+${money(product.price)}
+</span>
+
+${product.discount
+?
+`<span class="off">
+${safe(product.discount)}% OFF
+</span>`
+:""}
+
+</div>
+
+${product.delivery
+?
+`<p class="delivery">
+🚚 ${safe(product.delivery)}
+</p>`
+:""}
+
+<div class="actions">
+
+<button
+class="cartBtn"
+onclick="addCart(${product.id})">
+🛒 Add to Cart
+</button>
+
+<button
+class="buyBtn"
+onclick="buyNow(${product.id})">
+⚡ Buy Now
+</button>
+
+<button
+class="heart ${liked ? "liked" : ""}"
+onclick="toggleWishlist(${product.id})">
+
+${liked ? "♥" : "♡"}
+
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+`;
+
+}
+
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
 
 function renderProducts(){
- const box=document.getElementById("products");
- const featured=document.getElementById("featured");
 
- if(!products.length){
-  box.innerHTML=`<div class="empty"><div style="font-size:50px">🛍️</div><h2>No products available</h2><p>Products added from the Admin Panel will appear here.</p></div>`;
-  featured.innerHTML="";
-  return;
- }
+const box =
+document.getElementById("products");
 
- box.innerHTML=products.map((p,i)=>{
-  const discount=p.discount||0;
-  return `<div class="product" data-name="${safe(p.name)}">
-   ${p.image?`<img class="productImg" src="${safe(p.image)}" alt="${safe(p.name)}" onerror="this.style.display='none'">`:''}
-   <div class="productInfo">
-    <h2 class="productName">${safe(p.name)}</h2>
-    <p class="desc">${safe(p.description||"")}</p>
-    <div class="priceRow">
-     ${p.mrp?`<span class="old">₹${safe(p.mrp)}</span>`:""}
-     ${p.price?`<span class="price">₹${safe(p.price)}</span>`:""}
-     ${discount?`<span class="off">${safe(discount)}% OFF</span>`:""}
-    </div>
-    ${p.delivery?`<p class="delivery">🚚 Delivery: ₹${safe(p.delivery)}</p>`:""}
-    <div class="actions">
-     <button class="cartBtn" onclick="addCart(${i})">🛒 Add to Cart</button>
-     <button class="buyBtn" onclick="buyProduct(${i})">⚡ Buy Now</button>
-     <button class="heart ${isLiked(p)?"liked":""}" onclick="toggleWishlist(${i})" aria-label="Wishlist">
-      ${isLiked(p)?"♥":"♡"}
-     </button>
-    </div>
-   </div>
-  </div>`;
- }).join("");
+const featured =
+document.getElementById("featured");
 
- featured.innerHTML=products.slice(0,5).map(p=>`
-  <div style="background:white;border-radius:20px;padding:12px;margin-bottom:10px;box-shadow:0 4px 15px #0001;animation:cardIn .45s ease both">
-   <b>${safe(p.name)}</b>
-   ${p.price?`<span style="color:#e91e63;font-weight:bold"> — ₹${safe(p.price)}</span>`:""}
-  </div>`).join("");
-}
+if(!products.length){
 
-/* Wishlist */
-function getWishlist(){
- try{
-  const x=JSON.parse(localStorage.getItem("jibranWishlist")||"[]");
-  return Array.isArray(x)?x:[];
- }catch(e){return []}
-}
-function isLiked(product){
- return getWishlist().some(p=>p.name===product.name);
-}
-function toggleWishlist(index){
- const product=products[index];
- if(!product)return;
- let list=getWishlist();
- const found=list.findIndex(p=>p.name===product.name);
- if(found===-1){
-  list.push(product);
-  showToast("❤️ Added to Wishlist!");
- }else{
-  list.splice(found,1);
-  showToast("♡ Removed from Wishlist");
- }
- localStorage.setItem("jibranWishlist",JSON.stringify(list));
- renderProducts();
- if(document.getElementById("wishlistModal").classList.contains("show")) renderWishlist();
-}
-function openWishlist(){
- renderWishlist();
- document.getElementById("wishlistModal").classList.add("show");
-}
-function closeWishlist(){document.getElementById("wishlistModal").classList.remove("show")}
-function renderWishlist(){
- const body=document.getElementById("wishlistBody"),list=getWishlist();
- if(!list.length){
-  body.innerHTML=`<div class="empty"><div style="font-size:50px">🤍</div><h3>Your Wishlist is empty</h3><p>Tap the heart on a product to save it here.</p></div>`;
-  return;
- }
- body.innerHTML=list.map((p,i)=>`
-  <div class="wishItem">
-   ${p.image?`<img src="${safe(p.image)}" alt="">`:`<div style="width:75px;height:75px;border-radius:12px;background:#eee;display:grid;place-items:center;font-size:28px">🛍️</div>`}
-   <div class="itemText"><b>${safe(p.name)}</b><small>Saved to your Wishlist</small></div>
-   <button class="removeItem" onclick="removeWishlist(${i})">Remove</button>
-  </div>`).join("");
-}
-function removeWishlist(i){
- let list=getWishlist();list.splice(i,1);
- localStorage.setItem("jibranWishlist",JSON.stringify(list));
- renderWishlist();renderProducts();showToast("♡ Removed from Wishlist");
+box.innerHTML = `
+
+<div class="empty">
+
+<div style="font-size:50px">
+🛍️
+</div>
+
+<h2>No products available</h2>
+
+<p>
+Products added from the Admin Panel
+will appear here.
+</p>
+
+</div>
+
+`;
+
+featured.innerHTML = "";
+
+}else{
+
+box.innerHTML =
+products.map(productCard).join("");
+
+featured.innerHTML =
+products
+.slice(0,4)
+.map(productCard)
+.join("");
+
 }
 
-/* Cart */
-function getCart(){
- try{
-  const x=JSON.parse(localStorage.getItem("jibranCartItems")||"[]");
-  return Array.isArray(x)?x:[];
- }catch(e){return []}
+updateCartCount();
+renderCart();
+renderWishlist();
+renderAdmin();
+
 }
-function addCart(index){
- const product=products[index];if(!product)return;
- let cart=getCart();
- cart.push(product);
- localStorage.setItem("jibranCartItems",JSON.stringify(cart));
- updateCartCount();
- showToast("🛒 Added to Cart!");
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function focusSearch(){
+
+const input =
+document.getElementById("searchInput");
+
+input.focus();
+
+input.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
 }
-function updateCartCount(){document.getElementById("cartCount").innerText=getCart().length}
-function openCart(){renderCart();document.getElementById("cartModal").classList.add("show")}
-function closeCart(){document.getElementById("cartModal").classList.remove("show")}
+
+function searchProducts(){
+
+const query =
+document.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+document
+.querySelectorAll("#products .product")
+.forEach(card=>{
+
+const name =
+card
+.getAttribute("data-name")
+.toLowerCase();
+
+card.style.display =
+!query || name.includes(query)
+?
+""
+:
+"none";
+
+});
+
+if(query){
+
+document.getElementById("history")
+.style.display="block";
+
+}
+
+}
+
+function saveSearch(){
+
+const input =
+document.getElementById("searchInput");
+
+const value =
+input.value.trim();
+
+if(!value)return;
+
+history =
+history.filter(x=>x!==value);
+
+history.unshift(value);
+
+history =
+history.slice(0,8);
+
+saveData();
+
+renderHistory();
+
+searchProducts();
+
+}
+
+function renderHistory(){
+
+const box =
+document.getElementById("history");
+
+if(!history.length){
+
+box.innerHTML="";
+
+box.style.display="none";
+
+return;
+
+}
+
+box.innerHTML =
+history.map(x=>
+`<span onclick="useHistory('${safe(x)}')">
+🕘 ${safe(x)}
+</span>`
+).join("");
+
+}
+
+function showHistory(){
+
+if(history.length){
+
+document.getElementById("history")
+.style.display="block";
+
+renderHistory();
+
+}
+
+}
+
+function useHistory(value){
+
+document.getElementById("searchInput")
+.value=value;
+
+searchProducts();
+
+}
+
+
+/* =========================
+   VOICE
+========================= */
+
+function voiceSearch(){
+
+const SpeechRecognition =
+window.SpeechRecognition ||
+window.webkitSpeechRecognition;
+
+if(!SpeechRecognition){
+
+alert(
+"Voice search is not supported in this browser."
+);
+
+return;
+
+}
+
+const recognition =
+new SpeechRecognition();
+
+recognition.lang="en-IN";
+
+recognition.onresult=function(event){
+
+const text =
+event.results[0][0].transcript;
+
+document.getElementById("searchInput")
+.value=text;
+
+saveSearch();
+
+};
+
+recognition.start();
+
+}
+
+
+/* =========================
+   CART
+========================= */
+
+function addCart(id){
+
+const existing =
+cart.find(item=>item.id===id);
+
+if(existing){
+
+existing.qty++;
+
+}else{
+
+cart.push({
+id:id,
+qty:1
+});
+
+}
+
+saveData();
+
+updateCartCount();
+
+renderCart();
+
+openCart();
+
+}
+
+function updateCartCount(){
+
+const count =
+cart.reduce(
+(total,item)=>total+item.qty,
+0
+);
+
+document.getElementById("cartCount")
+.innerText=count;
+
+}
+
+function changeQty(id,change){
+
+const item =
+cart.find(x=>x.id===id);
+
+if(!item)return;
+
+item.qty += change;
+
+if(item.qty<=0){
+
+cart =
+cart.filter(x=>x.id!==id);
+
+}
+
+saveData();
+
+updateCartCount();
+
+renderCart();
+
+}
+
+function removeCart(id){
+
+cart =
+cart.filter(x=>x.id!==id);
+
+saveData();
+
+updateCartCount();
+
+renderCart();
+
+}
+
 function renderCart(){
- const body=document.getElementById("cartBody"),cart=getCart();
- if(!cart.length){
-  body.innerHTML=`<div class="empty"><div style="font-size:50px">🛒</div><h3>Your cart is empty</h3><p>Add a product to your cart first.</p></div>`;
-  return;
- }
- body.innerHTML=cart.map((p,i)=>`
-  <div class="cartItem">
-   ${p.image?`<img src="${safe(p.image)}" alt="">`:`<div style="width:75px;height:75px;border-radius:12px;background:#eee;display:grid;place-items:center;font-size:28px">🛍️</div>`}
-   <div class="itemText"><b>${safe(p.name)}</b>${p.price?`<small>₹${safe(p.price)}</small>`:""}</div>
-   <button class="removeItem" onclick="removeCart(${i})">Remove</button>
-  </div>`).join("")+
-  `<div class="modalActions"><button class="clearBtn" onclick="clearCart()">Clear Cart</button><button class="checkout" onclick="checkoutCart()">⚡ Order on WhatsApp</button></div>`;
+
+const box =
+document.getElementById("cartBody");
+
+if(!cart.length){
+
+box.innerHTML = `
+
+<div class="empty">
+
+<div style="font-size:45px">
+🛒
+</div>
+
+<h3>Your cart is empty</h3>
+
+</div>
+
+`;
+
+return;
+
 }
-function removeCart(i){
- let cart=getCart();cart.splice(i,1);localStorage.setItem("jibranCartItems",JSON.stringify(cart));
- updateCartCount();renderCart();showToast("Removed from Cart");
+
+let total=0;
+
+box.innerHTML =
+cart.map(item=>{
+
+const product =
+products.find(
+p=>p.id===item.id
+);
+
+if(!product)return "";
+
+total +=
+Number(product.price || 0)
+*
+item.qty;
+
+return `
+
+<div class="item">
+
+${
+product.image
+?
+`<img src="${safe(product.image)}">`
+:
+`<div style="font-size:40px">
+🛍️
+</div>`
 }
-function clearCart(){
- localStorage.setItem("jibranCartItems","[]");updateCartCount();renderCart();showToast("🛒 Cart cleared");
+
+<div class="itemText">
+
+<b>
+${safe(product.name)}
+</b>
+
+<small>
+${money(product.price)}
+</small>
+
+</div>
+
+<div class="qty">
+
+<button
+onclick="changeQty(${product.id},-1)">
+−
+</button>
+
+<span>${item.qty}</span>
+
+<button
+onclick="changeQty(${product.id},1)">
++
+</button>
+
+</div>
+
+<button
+class="remove"
+onclick="removeCart(${product.id})">
+×
+</button>
+
+</div>
+
+`;
+
+}).join("")
+
++
+
+`<div class="total">
+Total: ${money(total)}
+</div>
+
+<button
+class="primary"
+onclick="orderCart()">
+📲 Order on WhatsApp
+</button>`;
+
 }
-function checkoutCart(){
- const cart=getCart();if(!cart.length)return;
- let lines=cart.map((p,i)=>(i+1)+". "+(p.name||"Product")).join("\n");
- const msg="Hello Jibran's Creations,\n\nI want to order:\n"+lines+"\n\nPlease con
+
+function orderCart(){
+
+if(!cart.length)return;
+
+let message =
+"Hello Jibran's Creations,%0A%0A"+
+"I want to order:%0A";
+
+cart.forEach(item=>{
+
+const p =
+products.find(x=>x.id===item.id);
+
+if(p){
+
+message +=
+encodeURIComponent(
+p.name +
+" x" +
+item.qty
+)
++
+"%0A";
+
+}
+
+});
+
+window.open(
+"https://wa.me/919150608692?text="+message,
+"_blank"
+);
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+function toggleWishlist(id){
+
+const index =
+wishlist.indexOf(id);
+
+if(index===-1){
+
+wishlist.push(id);
+
+}else{
+
+wishlist.splice(index,1);
+
+}
+
+saveData();
+
+renderProducts();
+
+renderWishlist();
+
+}
+
+function renderWishlist(){
+
+const box =
+document.getElementById("wishlistBody");
+
+const items =
+wishlist
+.map(id=>
+products.find(p=>p.id===id)
+)
+.filter(Boolean);
+
+if(!items.length){
+
+box.innerHTML=`
+
+<div class="empty">
+
+<div style="font-size:45px">
+❤️
+</div>
+
+<h3>Your Wishlist is empty</h3>
+
+<p>
+Tap the white heart on a product
+to add it here.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+box.innerHTML =
+items.map(product=>`
+
+<div class="item">
+
+${
+product.image
+?
+`<img src="${safe(product.image)}">`
+:
+`<div style="font-size:40px">
+❤️
+</div>`
+}
+
+<div class="itemText">
+
+<b>
+${safe(product.name)}
+</b>
+
+<small>
+${money(product.price)}
+</small>
+
+</div>
+
+<button
+class="remove"
+onclick="toggleWishlist(${product.id})">
+Remove
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================
+   BUY NOW
+========================= */
+
+function buyNow(id){
+
+const product =
+products.find(p=>p.id===id);
+
+if(!product)return;
+
+const message =
+"Hello Jibran's Creations,%0A%0A"+
+"I want to buy:%0A"+
+encodeURIComponent(product.name)+
+"%0A%0APlease confirm my order.";
+
+window.open(
+"https://wa.me/919150608692?text="+message,
+"_blank"
+);
+
+
+/* =========================
+   MODALS
+========================= */
+
+function openCart(){
+
+renderCart();
+
+document
+.getElementById("cartModal")
+.classList.add("show");
+
+}
+
+function openWishlist(){
+
+renderWishlist();
+
+document
+.getElementById("wishlistModal")
+.classList.add("show");
+
+}
+
+function openAI(){
+
+document
+.getElementById("aiModal")
+.classList.add("show");
+
+}
+
+function closeModal(id){
+
+document
+.getElementById(id)
+.classList.remove("show");
+
+}
+
+document
+.querySelectorAll(".modal")
+.forEach(modal=>{
+
+modal.addEventListener(
+"click",
+function(event){
+
+if(event.target===modal){
+
+closeModal(mod
