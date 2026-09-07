@@ -1091,7 +1091,111 @@ header{
 <script>
 
 let products = [];
+<script>
+function focusSearch(){
+  const input = document.getElementById("searchInput");
+  if(input){
+    input.focus();
+    input.scrollIntoView({behavior:"smooth", block:"center"});
+  }
+}
 
+function searchProducts(){
+  const input = document.getElementById("searchInput");
+  const query = input ? input.value.toLowerCase().trim() : "";
+
+  const cards = document.querySelectorAll(".product");
+
+  cards.forEach(card => {
+    const name = (card.dataset.name || "").toLowerCase();
+    card.style.display = !query || name.includes(query) ? "" : "none";
+  });
+}
+
+function openWishlist(){
+  const modal = document.getElementById("wishlistModal");
+  if(modal) modal.style.display = "flex";
+}
+
+function closeWishlist(){
+  const modal = document.getElementById("wishlistModal");
+  if(modal) modal.style.display = "none";
+}
+
+function openCart(){
+  const modal = document.getElementById("cartModal");
+  if(modal) modal.style.display = "flex";
+}
+
+function closeCart(){
+  const modal = document.getElementById("cartModal");
+  if(modal) modal.style.display = "none";
+}
+
+function closeModalOutside(event, id){
+  if(event.target.id === id){
+    document.getElementById(id).style.display = "none";
+  }
+}
+
+function voiceSearch(){
+  if(!("webkitSpeechRecognition" in window)){
+    alert("Voice search is not supported in this browser.");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-IN";
+
+  recognition.onresult = function(event){
+    const text = event.results[0][0].transcript;
+    document.getElementById("searchInput").value = text;
+    searchProducts();
+  };
+
+  recognition.start();
+}
+
+function cameraSearch(){
+  alert("Camera search coming soon!");
+}
+
+function toggleAI(){
+  const box = document.getElementById("aiBox");
+  if(!box) return;
+
+  box.style.display =
+    box.style.display === "block" ? "none" : "block";
+}
+
+function quickAI(text){
+  const messages = document.getElementById("messages");
+
+  if(messages){
+    messages.innerHTML +=
+      `<div class="msg bot">🤖 ${text}</div>`;
+  }
+}
+
+function sendAI(){
+  const input = document.getElementById("aiInput");
+  const messages = document.getElementById("messages");
+
+  if(!input || !messages) return;
+
+  const text = input.value.trim();
+
+  if(!text) return;
+
+  messages.innerHTML +=
+    `<div class="msg user">${text}</div>`;
+
+  input.value = "";
+
+  messages.innerHTML +=
+    `<div class="msg bot">🤖 I'm checking that for you...</div>`;
+}
+</script>
 
 /* =========================
    ADMIN PANEL CONNECTION
